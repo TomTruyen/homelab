@@ -3,6 +3,7 @@
     - size: full
       widgets:
         - type: videos
+          title: Tech Channels
           channels:
             # Tech Channels
             - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
