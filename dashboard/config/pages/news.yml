@@ -2,6 +2,34 @@
   columns:
     - size: full
       widgets:
+        - type: rss
+          title: Technology
+          feeds:
+            - url: https://techcrunch.com/feed/
+              title: TechCrunch
+            - url: https://www.theverge.com/rss/index.xml
+              title: The Verge
+            - url: https://arstechnica.com/feed/
+              title: Ars Technica
+
+        - type: rss
+          title: Finance
+          feeds:
+            - url: https://feeds.bloomberg.com/markets/news.rss
+              title: Bloomberg
+            - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+              title: Wall Street Journal
+            - url: https://www.ft.com/technology?format=rss
+              title: Financial Times
+
+        - type: rss
+          title: Politics
+          feeds:
+            - url: https://rss.politico.com/politics-news.xml
+              title: Politico (Politics)
+            - url: https://rss.politico.com/economy.xml
+              title: Politico (Economy)
+
         - type: group
           widgets:
             - type: hacker-news
