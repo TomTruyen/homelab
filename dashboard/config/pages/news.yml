@@ -4,6 +4,7 @@
       widgets:
         - type: rss
           title: Technology
+          style: horizontal-cards
           feeds:
             - url: https://techcrunch.com/feed/
               title: TechCrunch
@@ -14,6 +15,7 @@
 
         - type: rss
           title: Finance
+          style: horizontal-cards
           feeds:
             - url: https://feeds.bloomberg.com/markets/news.rss
               title: Bloomberg
@@ -24,6 +26,7 @@
 
         - type: rss
           title: Politics
+          style: horizontal-cards
           feeds:
             - url: https://rss.politico.com/politics-news.xml
               title: Politico (Politics)
@@ -34,3 +37,12 @@
           widgets:
             - type: hacker-news
             - type: lobsters
+    - size: small
+      widgets:
+        - type: reddit
+          subreddit: technology
+          show-thumbnails: true
+
+        - type: reddit
+          subreddit: finance
+          show-thumbnails: true
