@@ -1,30 +1,16 @@
 - name: Home
   head-widgets:
-    - type: markets
-      markets:
-        - symbol: VUSA.L
-          name: S&P 500 UCITS (Vanguard)
-
-        - symbol: EXSA.DE
-          name: STOXX 600 (iShares)
-
-        - symbol: WSML.L
-          name: MSCI World Small Cap (iShares )
-        
-        - symbol: BTC-USD
-          name: Bitcoin
-          chart-link: https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD
-
-        - symbol: ADA-USD
-          name: Cardano
-          chart-link: https://www.tradingview.com/chart/?symbol=INDEX:ADAUSD
+    
 
   columns:
     - size: small
       widgets:
+        - type: calendar
+          first-day-of-week: monday
+          
         - type: rss
           limit: 25
-          collapse-after: 10
+          collapse-after: 5
           cache: 1h
           feeds:
             - url: https://selfh.st/rss/
@@ -38,6 +24,18 @@
 
     - size: full
       widgets:
+        - type: search
+          autofocus: true
+          search-engine: DuckDuckGo
+          new-tab: true
+          bangs:
+            - title: YouTube
+              shotcut: "!yt"
+              url: "https://www.youtube.com/results?search_query={QUERY}"
+            - title: GitHub
+              shotcut: "!gh"
+              url: "https://github.com/search?q={QUERY}&type=repositories"
+
         - type: group
           widgets:
             - type: hacker-news
@@ -53,14 +51,30 @@
               show-thumbnails: true
 
     - size: small
-      widgets:
-        - type: calendar
-          first-day-of-week: monday
-        
+      widgets:  
         - type: weather
           location: Bree, Belgium
           units: metric
           hour-format: 12h
+
+        - type: markets
+          markets:
+            - symbol: VUSA.L
+              name: S&P 500 UCITS (Vanguard)
+
+            - symbol: EXSA.DE
+              name: STOXX 600 (iShares)
+
+            - symbol: WSML.L
+              name: MSCI World Small Cap (iShares )
+            
+            - symbol: BTC-USD
+              name: Bitcoin
+              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD
+
+            - symbol: ADA-USD
+              name: Cardano
+              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:ADAUSD
           
         - type: releases
           cache: 1d
