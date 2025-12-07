@@ -18,14 +18,17 @@
               name: Raspberry PI 3B+
               url: http://192.168.0.151:27973
 
-        
-        - type: to-do
+        - type: releases
+          repositories:
+            - glanceapp/glance
+            - traefik/traefik
+            - pi-hole/pi-hole
+            - openmediavault/openmediavault
+            - portainer/portainer
+            - louislam/uptime-kuma
         
     - size: full
       widgets:
-        - type: docker-containers
-          hide-by-default: false
-
         - type: monitor
           cache: 1m
           title: Homelab Services
@@ -57,10 +60,15 @@
             - title: DroidLaunch Docs
               url: https://docs.droidlaunch.tomtruyen.dev
 
+        - type: docker-containers
+          hide-by-default: false
     - size: small
       widgets:
+        - type: to-do
+
         - type: reddit
           subreddit: selfhosted
           show-thumbnails: true
           limit: 20
           collapse-after: 5
+
