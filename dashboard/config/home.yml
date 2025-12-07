@@ -30,10 +30,10 @@
           new-tab: true
           bangs:
             - title: YouTube
-              shotcut: "!yt"
+              shortcut: "!yt"
               url: "https://www.youtube.com/results?search_query={QUERY}"
             - title: GitHub
-              shotcut: "!gh"
+              shortcut: "!gh"
               url: "https://github.com/search?q={QUERY}&type=repositories"
 
         - type: group
