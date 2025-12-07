@@ -63,4 +63,4 @@
           subreddit: selfhosted
           show-thumbnails: true
           limit: 20
-          collapse-after: 10
+          collapse-after: 5
