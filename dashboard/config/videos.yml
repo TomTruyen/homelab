@@ -1,11 +1,18 @@
 - name: Videos
-  columns:
-    - size: full
-      widgets:
-        - type: group
-          widgets:
-            - type: hacker-news
-            - type: lobsters
-# TODO: Make a videos page with different "sections" for different types
+  groups: 
+    - columns:
+        - type: text
+          content: "### Tech"
+        - type: videos
+          channels:
+            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+            - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
+            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
 
-# Types: Tech, Education (STEM?), Fitness,...
+    - columns:
+        - type: text
+          content: "### Education"
+        - type: videos
+          channels:
+            - UCsBjURrPoezykLs9EqgamOA # Fireship
+ 
