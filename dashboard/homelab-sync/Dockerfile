@@ -15,5 +15,5 @@ WORKDIR /repo
 COPY sync.sh /sync.sh
 RUN chmod +x /sync.sh
 
-# Run update script every minute in a simple loop
+# Run update script every minute
 CMD ["/bin/bash", "-c", "while true; do /sync.sh; sleep 60; done"]
