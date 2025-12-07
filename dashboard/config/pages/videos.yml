@@ -52,7 +52,7 @@
           url: http://192.168.0.150:3000/upcoming
           template: |
             <ul class="list list-gap-6 collapsible-container" data-collapse-after="5">
-              {{ range .JSON.Array }}
+              {{ range .JSON.Array "items" }}
                 <li>
                   <a class="size-h4 color-highlight block text-truncate" href="{{ .String "url" }}" target="_blank">
                     {{ .String "title" }}
