@@ -26,7 +26,7 @@
       widgets:
         - type: search
           autofocus: true
-          search-engine: DuckDuckGo
+          search-engine: duckduckgo
           new-tab: true
           bangs:
             - title: YouTube
