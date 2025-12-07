@@ -45,6 +45,9 @@
           sites:
             - title: Traefik Dashboard
               url: http://traefik.tomtruyen.dev
+              basic-auth:
+                username: ${TRAEFIK_USERNAME}
+                password: ${TRAEFIK_PASSWORD}
             - title: Portfolio
               url: https://tomtruyen.dev
             - title: Mailsift
