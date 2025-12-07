@@ -52,7 +52,7 @@
           url: http://192.168.0.150:3000/upcoming
           template: |
             <ul class="list-none p-0 m-0">
-              {{ range .JSON.Array }}
+              {{ range .JSON }}
                 <li class="mb-2">
                   <a href="{{ .String "url" }}" target="_blank" class="font-bold text-blue-500 hover:underline">
                     {{ .String "title" }}
@@ -67,5 +67,6 @@
                 </li>
               {{ end }}
             </ul>
+
 
           
