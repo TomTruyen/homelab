@@ -1,40 +1,42 @@
 - name: Videos
   columns:
-    - type: videos
-      channels:
-        # Tech Channels
-        - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
-        - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
-        - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
-        - UCsBjURrPoezykLs9EqgamOA # Fireship
-        - UC5UAwBUum7CPN5buc-_N1Fw # The Linux Experiment
+    - size: full
+      widgets:
+        - type: videos
+          channels:
+            # Tech Channels
+            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+            - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
+            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
+            - UCsBjURrPoezykLs9EqgamOA # Fireship
+            - UC5UAwBUum7CPN5buc-_N1Fw # The Linux Experiment
 
-    - type: videos
-      channels:
-        # Finance, Self Improvement, Psychology and Education Channels
-        - UCGy7SkBjcIAgTiwkXEtPnYg # Andrei Jikh
-        - UCkCGANrihzExmu9QiqZpPlQ # How Money Works
-        - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
-        - UCVudTdhiwnMNGfvVnw_Z-ww # Robert Herjavec
-        - UCxKh52s2WyrPKt1YDlT_d7w # Stoic Shift
-        - UCO5QSoES5yn2Dw7YixDYT5Q # Aperture
+        - type: videos
+          channels:
+            # Finance, Self Improvement, Psychology and Education Channels
+            - UCGy7SkBjcIAgTiwkXEtPnYg # Andrei Jikh
+            - UCkCGANrihzExmu9QiqZpPlQ # How Money Works
+            - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
+            - UCVudTdhiwnMNGfvVnw_Z-ww # Robert Herjavec
+            - UCxKh52s2WyrPKt1YDlT_d7w # Stoic Shift
+            - UCO5QSoES5yn2Dw7YixDYT5Q # Aperture
 
-    - type: videos
-      channels:
-        # Fitness Channels
-        - UCh4C3f6Vx22YJo-i5mGxt1w # Marilyn Amber
-        - UChQ-d14tHB62nskossxO0tw # Joe Fazer
-        - UCeqR0F3O1V11CiiOaJbd1pw # MattDoesFitness
-        - UCLqH-U2TXzj1h7lyYQZLNQQ # Greg Doucette
-        - UCeEp3s9t-tsJC_y4qbH8QNA # Brodie Falgoust (BrodieShredz)
-        - UCEjIjshJ8bvvCkGNk0pkYcA # Jesse James West
-        - UC5eRcVSfYz123I1srJNQbGg # James Beardwell
-        - UCAuk798iHprjTtwlClkFxMA # Sam Sulek
-        - UCB2wtYpfbCpYDc5TeTwuqFA # Will Tennyson
-        - UC0r_-7jgl1yl0oWzGEJ6o3w # Browney
-        - UCRTKxN3fLqam6NcPiuPwt_g # Daddyzzeus
-        - UCe-Hd7Cc3KDTQxqsdhMdj3A # Annabel Lucinda
-        - UCMqa1mNaKmSSe48FzwohAEA # David Laid
-        - UCppoFWHZQ8Td1WYltNkQG1Q # Kato Dossche
-        - UCxTclqPDlFzC6yMVtWYm_DA # LeanBeefPatty
-        - UC4514FwdRy5gI6CdC9GPb0w # Chris Bumstead
+        - type: videos
+          channels:
+            # Fitness Channels
+            - UCh4C3f6Vx22YJo-i5mGxt1w # Marilyn Amber
+            - UChQ-d14tHB62nskossxO0tw # Joe Fazer
+            - UCeqR0F3O1V11CiiOaJbd1pw # MattDoesFitness
+            - UCLqH-U2TXzj1h7lyYQZLNQQ # Greg Doucette
+            - UCeEp3s9t-tsJC_y4qbH8QNA # Brodie Falgoust (BrodieShredz)
+            - UCEjIjshJ8bvvCkGNk0pkYcA # Jesse James West
+            - UC5eRcVSfYz123I1srJNQbGg # James Beardwell
+            - UCAuk798iHprjTtwlClkFxMA # Sam Sulek
+            - UCB2wtYpfbCpYDc5TeTwuqFA # Will Tennyson
+            - UC0r_-7jgl1yl0oWzGEJ6o3w # Browney
+            - UCRTKxN3fLqam6NcPiuPwt_g # Daddyzzeus
+            - UCe-Hd7Cc3KDTQxqsdhMdj3A # Annabel Lucinda
+            - UCMqa1mNaKmSSe48FzwohAEA # David Laid
+            - UCppoFWHZQ8Td1WYltNkQG1Q # Kato Dossche
+            - UCxTclqPDlFzC6yMVtWYm_DA # LeanBeefPatty
+            - UC4514FwdRy5gI6CdC9GPb0w # Chris Bumstead
