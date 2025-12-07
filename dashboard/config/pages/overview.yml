@@ -30,12 +30,13 @@
                   url: https://www.netflix.com/browse
                 - title: Anime
                   url: https://animekai.to/home
-        - type: to-do   
-
-        - type: weather
-          location: Bree, Belgium
-          units: metric
-          hour-format: 12h     
+        
+        - type: releases
+          token: ${GITHUB_TOKEN}
+          repositories:
+            - TomTruyen/fynix
+            - TomTruyen/soteria-authenticator
+            - TomTruyen/get-reminded
 
     - size: full
       widgets:
@@ -60,10 +61,6 @@
             issues-limit: -1
             commit-limit: -1
           widgets:
-            - title: Homelab
-              repository: TomTruyen/homelab
-              <<: *shared-properties
-
             - title: Fynix
               repository: TomTruyen/fynix
               <<: *shared-properties
@@ -78,6 +75,10 @@
 
             - title: VPS-Deploy
               repository: TomTruyen/tomtruyen-dev-traefik-vps-flow
+              <<: *shared-properties
+
+            - title: Homelab
+              repository: TomTruyen/homelab
               <<: *shared-properties
 
             - title: ThijsWoodworking
@@ -121,8 +122,15 @@
 
     - size: small
       widgets:  
+        - type: to-do   
+
         - type: calendar
           first-day-of-week: monday
+
+        - type: weather
+          location: Bree, Belgium
+          units: metric
+          hour-format: 12h   
 
         - type: rss
           limit: 25
