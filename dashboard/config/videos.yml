@@ -1,4 +1,11 @@
 - name: Videos
+  columns:
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+            - type: lobsters
 # TODO: Make a videos page with different "sections" for different types
 
 # Types: Tech, Education (STEM?), Fitness,...
