@@ -1,5 +1,17 @@
 - name: Homelab
   columns:
+    - size: small
+      widgets:
+        - type: server-stats
+          servers:
+            - type: local
+              name: Services
+        
+        - type: dns-stats
+          service: pihole
+          url: http://192.168.0.151:8080 # Raspberry Pi 3B
+          token: ${PIHOLE_API_KEY}
+        
     - size: full
       widgets:
         - type: group
