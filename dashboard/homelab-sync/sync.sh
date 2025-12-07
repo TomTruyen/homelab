@@ -70,6 +70,7 @@ if [ "$SHOULD_RELOAD_ANILIST" = true ]; then
     exit 0
 fi
 
+# MUST BE THE LAST ACTION AS IT RESTARTS SELF SO NO FURTHER ACTIONS CAN BE TAKEN
 if [ "$SHOULD_REBUILD_UPDATER" = true ]; then
     echo "[AutoUpdater] Changes in updater detected — rebuilding self..."
     cd "$DOCKER_COMPOSE_DIR"
