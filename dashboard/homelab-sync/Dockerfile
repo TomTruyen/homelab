@@ -2,7 +2,7 @@
 FROM docker:24.0.5-cli
 
 # Install required packages
-RUN apk add --no-cache git bash curl openssh
+RUN apk add --no-cache git bash curl
 
 # Prepare SSH for GitHub
 RUN mkdir -p /root/.ssh && \
