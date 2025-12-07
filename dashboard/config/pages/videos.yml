@@ -3,7 +3,7 @@
     - size: full
       widgets:
         - type: videos
-          title: Tech Channels
+          title: Technology
           channels:
             # Tech Channels
             - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
@@ -13,6 +13,7 @@
             - UC5UAwBUum7CPN5buc-_N1Fw # The Linux Experiment
 
         - type: videos
+          title: Finance and Self Improvement
           channels:
             # Finance, Self Improvement, Psychology and Education Channels
             - UCGy7SkBjcIAgTiwkXEtPnYg # Andrei Jikh
@@ -23,6 +24,7 @@
             - UCO5QSoES5yn2Dw7YixDYT5Q # Aperture
 
         - type: videos
+          title: Fitness
           channels:
             # Fitness Channels
             - UCh4C3f6Vx22YJo-i5mGxt1w # Marilyn Amber
