@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import express from 'express';
 import { fetchAvailable } from './service/available.js';
 import { fetchUpcoming } from './service/upcoming.js';
