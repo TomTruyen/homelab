@@ -51,7 +51,7 @@
           cache: 1h
           url: http://192.168.0.150:3000/upcoming
           template: |
-            <ul class="list list-gap-6 collapsible-container" data-collapse-after="5">
+            <ul class="list list-gap-10 collapsible-container" data-collapse-after="10">
               {{ range .JSON.Array "items" }}
                 <li>
                   <a class="size-h4 color-highlight block text-truncate" href="{{ .String "url" }}" target="_blank">
@@ -62,7 +62,9 @@
                       <li>Episode {{ .Int "episode" }}</li>
                     {{ end }}
                     <li>Airing: {{ .String "formattedAiring" }}</li>
-                    <li>Status: {{ .String "status" }}</li>
+                    <li{{ if ne .String "status" "NOT_YET_RELEASED" }} class="color-negative"{{ else }} class="color-positive"{{ end }}>
+                      {{ .String "status" }}
+                    </li>
                   </ul>
                 </li>
               {{ end }}
