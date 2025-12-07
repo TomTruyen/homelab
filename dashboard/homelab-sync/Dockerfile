@@ -7,7 +7,7 @@ WORKDIR /repo
 
 # Add sync script
 COPY sync.sh /sync.sh
-RUN chmod +x /update.sh
+RUN chmod +x /sync.sh
 
 # Run update script every minute using a loop (simpler than cron in Docker)
-CMD ["/bin/bash", "-c", "while true; do /update.sh; sleep 60; done"]
+CMD ["/bin/bash", "-c", "while true; do /sync.sh; sleep 60; done"]
