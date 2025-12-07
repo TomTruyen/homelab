@@ -62,9 +62,11 @@
                       <li>Episode {{ .Int "episode" }}</li>
                     {{ end }}
                     <li>Airing: {{ .String "formattedAiring" }}</li>
-                    <li{{ if ne .String "status" "NOT_YET_RELEASED" }} class="color-negative"{{ else }} class="color-positive"{{ end }}>
-                      {{ .String "status" }}
-                    </li>
+                    {{ if ne .String "status" "NOT_YET_RELEASED" }}
+                      <li class="color-positive">{{ .String "status" }}</li>
+                    {{ else }}
+                      <li class="color-negative">{{ .String "status" }}</li>
+                    {{ end }}
                   </ul>
                 </li>
               {{ end }}
