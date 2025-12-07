@@ -1,7 +1,4 @@
-- name: Home
-  head-widgets:
-    
-
+- name: Overview
   columns:
     - size: small
       widgets:
@@ -53,7 +50,27 @@
             - title: GitHub
               shortcut: "!gh"
               url: "https://github.com/search?q={QUERY}&type=repositories"
-
+        - type: group
+          title: DroidLaunch
+          widgets:
+            - type: repository
+              repository: TomTruyen-Organisation/droidlaunch-kt
+              token: ${GITHUB_TOKEN}
+              pull-requests-limit: 3
+              issues-limit: -1
+              commit-limit: -1
+            - type: repository
+              repository: TomTruyen-Organisation/droidlaunch-site
+              token: ${GITHUB_TOKEN}
+              pull-requests-limit: 3
+              issues-limit: -1
+              commit-limit: -1
+            - type: repository
+              repository: TomTruyen-Organisation/droidlaunch-docs
+              token: ${GITHUB_TOKEN}
+              pull-requests-limit: 3
+              issues-limit: -1
+              commit-limit: -1
         - type: group
           widgets:
             - type: hacker-news
