@@ -3,13 +3,13 @@
     - type: markets
       markets:
         - symbol: VUSA.L
-          name: Vanguard S&P 500 UCITS
+          name: S&P 500 UCITS (Vanguard)
 
         - symbol: EXSA.DE
-          name: iShares STOXX 600
+          name: STOXX 600 (iShares)
 
         - symbol: WSML.L
-          name: iShares MSCI World Small Cap
+          name: MSCI World Small Cap (iShares )
         
         - symbol: BTC-USD
           name: Bitcoin
@@ -29,6 +29,12 @@
           feeds:
             - url: https://selfh.st/rss/
               title: selfh.st
+            - url: https://techcrunch.com/feed/
+              title: TechCrunch
+            - url: https://rss.politico.com/politics-news.xml
+              title: Politico (Politics)
+            - url: https://rss.politico.com/economy.xml
+              title: Politico (Economy)
 
     - size: full
       widgets:
@@ -36,13 +42,6 @@
           widgets:
             - type: hacker-news
             - type: lobsters
-
-        - type: videos
-          channels:
-            - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
-            - UC9x0AN7BWHpCDHSm9NiJFJQ # NetworkChuck
-            - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
-            - UCsBjURrPoezykLs9EqgamOA # Fireship
 
         - type: group
           widgets:
@@ -55,15 +54,13 @@
 
     - size: small
       widgets:
+        - type: calendar
+          first-day-of-week: monday
+        
         - type: weather
           location: Bree, Belgium
           units: metric
-          hour-format: 12h # alternatively "24h"
-          # Optionally hide the location from being displayed in the widget
-          # hide-location: true
-
-        - type: calendar
-          first-day-of-week: monday
+          hour-format: 12h
           
         - type: releases
           cache: 1d
