@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git bash curl openssh
+RUN apk add --no-cache git bash curl openssh docker-cli
 
 RUN mkdir -p /root/.ssh && \
     ssh-keyscan github.com >> /root/.ssh/known_hosts
