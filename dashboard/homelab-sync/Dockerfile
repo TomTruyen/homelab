@@ -1,16 +1,19 @@
-FROM alpine:latest
+# Use Docker CLI image (includes docker and docker compose plugin)
+FROM docker:24.0.5-cli
 
-RUN apk add --no-cache git bash curl openssh docker-cli
+# Install required packages
+RUN apk add --no-cache git bash curl openssh
 
+# Prepare SSH for GitHub
 RUN mkdir -p /root/.ssh && \
     ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-# Directory where repo will be cloned
+# Set working directory where the repo will be mounted
 WORKDIR /repo
 
 # Add sync script
 COPY sync.sh /sync.sh
 RUN chmod +x /sync.sh
 
-# Run update script every minute using a loop (simpler than cron in Docker)
+# Run update script every minute in a simple loop
 CMD ["/bin/bash", "-c", "while true; do /sync.sh; sleep 60; done"]
