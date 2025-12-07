@@ -10,23 +10,23 @@ cd "$REPO_DIR" || exit 1
 
 # Clone if missing
 if [ ! -d ".git" ]; then
-    echo "[AutoUpdater] Cloning repo..."
+    echo "[GlanceFileSync] Cloning repo..."
     git clone "$REPO_URL" . || exit 1
     exit 0
 fi
 
 # Get list of changed files BEFORE pull
-echo "[AutoUpdater] Checking for incoming changes..."
+echo "[GlanceFileSync] Checking for incoming changes..."
 git fetch origin main
 
 CHANGED_FILES=$(git diff --name-only HEAD origin/main)
 
 if [ -z "$CHANGED_FILES" ]; then
-    echo "[AutoUpdater] No changes detected."
+    echo "[GlanceFileSync] No changes detected."
     exit 0
 fi
 
-echo "[AutoUpdater] Incoming changes:"
+echo "[GlanceFileSync] Incoming changes:"
 echo "$CHANGED_FILES"
 
 # Now pull updates
@@ -56,7 +56,7 @@ done <<< "$CHANGED_FILES"
 
 # --- Execute actions ---
 if [ "$SHOULD_RELOAD_ALL" = true ]; then
-    echo "[AutoUpdater] Reloading ALL services..."
+    echo "[GlanceFileSync] Reloading ALL services..."
     cd "$DOCKER_COMPOSE_DIR"
     docker compose down
     docker compose up -d --force-recreate
@@ -64,7 +64,7 @@ if [ "$SHOULD_RELOAD_ALL" = true ]; then
 fi
 
 if [ "$SHOULD_RELOAD_ANILIST" = true ]; then
-    echo "[AutoUpdater] Recreating anilist container..."
+    echo "[GlanceFileSync] Recreating anilist container..."
     cd "$DOCKER_COMPOSE_DIR"
     docker compose up -d --force-recreate --build anilist-api
     exit 0
@@ -72,10 +72,10 @@ fi
 
 # MUST BE THE LAST ACTION AS IT RESTARTS SELF SO NO FURTHER ACTIONS CAN BE TAKEN
 if [ "$SHOULD_REBUILD_UPDATER" = true ]; then
-    echo "[AutoUpdater] Changes in updater detected — rebuilding self..."
+    echo "[GlanceFileSync] Changes in updater detected — rebuilding self..."
     cd "$DOCKER_COMPOSE_DIR"
     docker compose up -d --force-recreate --build homelab-sync
     exit 0
 fi
 
-echo "[AutoUpdater] Changes pulled, no service restarts required."
+echo "[GlanceFileSync] Changes pulled, no service restarts required."
