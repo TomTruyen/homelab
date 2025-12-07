@@ -14,7 +14,7 @@ services:
 
   # Custom AniList API Service 
   anilist-api:
-    build: .
+    build: ./api/anilist
     container_name: glance-custom-anilist-api
     restart: unless-stopped
     env_file:
