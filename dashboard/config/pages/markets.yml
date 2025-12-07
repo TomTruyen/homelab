@@ -5,8 +5,8 @@
         - type: markets
           title: Indices
           markets:
-            - symbol: VUSA.L
-              name: S&P 500 UCITS (Vanguard)
+            # - symbol: VUSA.L
+            #   name: S&P 500 UCITS (Vanguard)
             - symbol: EXSA.DE
               name: STOXX 600 (iShares)
             - symbol: WSML.L
