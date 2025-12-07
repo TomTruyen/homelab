@@ -57,7 +57,7 @@
                   <a class="size-h4 color-highlight block text-truncate" href="{{ .String "url" }}" target="_blank">
                     {{ .String "title" }}
                   </a>
-                  <ul class="list-horizontal-text">
+                  <ul class="list-vertical-text">
                     {{ if .Int "episode" }}
                       <li>Episode {{ .Int "episode" }}</li>
                     {{ end }}
