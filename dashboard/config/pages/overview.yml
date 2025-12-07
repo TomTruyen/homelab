@@ -7,7 +7,8 @@
       widgets:
         - type: bookmarks
           groups:
-            - links:
+            - title: General
+              links:
                 - title: Proton
                   url: https://account.proton.me/apps
                 - title: Notion
@@ -32,7 +33,12 @@
                   url: https://www.netflix.com/browse
                 - title: Anime
                   url: https://animekai.to/home
-        - type: to-do        
+        - type: to-do   
+
+        - type: weather
+          location: Bree, Belgium
+          units: metric
+          hour-format: 12h     
 
     - size: full
       widgets:
@@ -66,11 +72,6 @@
       widgets:  
         - type: calendar
           first-day-of-week: monday
-
-        - type: weather
-          location: Bree, Belgium
-          units: metric
-          hour-format: 12h
 
         - type: rss
           limit: 25

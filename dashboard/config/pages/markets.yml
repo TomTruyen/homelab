@@ -80,8 +80,7 @@
       widgets:
         - type: bookmarks
           groups:
-            - title: Finance
-              links:
+            - links:
                 - title: Degiro
                   url: https://www.degiro.nl/login/en_GB/
                 - title: Coinmarketcap
