@@ -1,9 +1,0 @@
-services:
-  anilist-api:
-    build: .
-    container_name: glance-custom-anilist-api
-    restart: unless-stopped
-    env_file:
-      - .env
-    ports:
-      - "3000:3000"
