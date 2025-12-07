@@ -62,9 +62,10 @@
                   {{ end }}
                   <br/>
                   <span class="text-sm text-gray-400">
-                    Airing: {{ if eq .String "airingAt" "Unknown" }}Unknown{{ else }}{{ (time.Unix .Int "airingAt").Format "Jan 2, 15:04" }}{{ end }}
+                    Airing: {{ .String "formattedAiring" }}
                   </span>
                 </li>
               {{ end }}
             </ul>
+
           

@@ -62,36 +62,48 @@ async function fetchUpcoming() {
   const data = await response.json();
 
   return data.data.MediaListCollection.lists
-    .flatMap(list => list.entries)
-    .map(entry => {
-      const media = entry.media;
+  .flatMap(list => list.entries)
+  .map(entry => {
+    const media = entry.media;
+    let airingAt = media.nextAiringEpisode?.airingAt;
+    let formattedAiring = "Unknown";
 
-      let airingAt = media.nextAiringEpisode?.airingAt
-      if(!media.nextAiringEpisode) {
-        switch(media.status) {
-          case "NOT_YET_RELEASED":
-            airingAt = "Unknown"
-            break;
-          default:
-            return null;
-        }
+    if (airingAt && typeof airingAt === "number") {
+      const date = new Date(airingAt * 1000);
+      formattedAiring = date.toLocaleString("en-US", {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    }
+
+    if (!media.nextAiringEpisode) {
+      switch (media.status) {
+        case "NOT_YET_RELEASED":
+          formattedAiring = "Unknown";
+          break;
+        default:
+          return null;
       }
+    }
 
-      return {
-        id: media.id,
-        title: media.title.english || media.title.romaji,
-        episode: media.nextAiringEpisode?.episode,
-        airingAt: airingAt,
-        status: media.status,
-        url: `https://anilist.co/anime/${media.id}`,
-      };
-    })
-    .filter(Boolean)
-    .sort((a, b) => {
-      if(a.airingAt === "Unknown") return 1;
-      if(b.airingAt === "Unknown") return -1;
-      return a.airingAt - b.airingAt;
-    });
+    return {
+      id: media.id,
+      title: media.title.english || media.title.romaji,
+      episode: media.nextAiringEpisode?.episode,
+      airingAt: airingAt,
+      formattedAiring,
+      status: media.status,
+      url: `https://anilist.co/anime/${media.id}`
+    };
+  })
+  .filter(Boolean)
+  .sort((a, b) => {
+    if (a.airingAt === "Unknown") return 1;
+    if (b.airingAt === "Unknown") return -1;
+    return a.airingAt - b.airingAt;
+  });
 }
 
 // 3️⃣ API endpoints
