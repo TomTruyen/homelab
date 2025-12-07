@@ -1,0 +1,111 @@
+import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+import express from 'express';
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+const { ANILIST_CLIENT_ID, ANILIST_CLIENT_SECRET } = process.env;
+
+// 1️⃣ Function to get dynamic access token
+async function getAccessToken() {
+  const params = new URLSearchParams();
+  params.append('grant_type', 'client_credentials');
+  params.append('client_id', ANILIST_CLIENT_ID);
+  params.append('client_secret', ANILIST_CLIENT_SECRET);
+
+  const response = await fetch('https://anilist.co/api/v2/oauth/token', {
+    method: 'POST',
+    body: params
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to get access token: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.access_token;
+}
+
+// 2️⃣ Fetch upcoming episodes
+async function fetchUpcoming() {
+  const token = await getAccessToken(); // <-- get a fresh token dynamically
+
+  const query = `
+    query {
+      MediaListCollection(userName: "${process.env.ANILIST_USERNAME}", type: ANIME, status_in: [CURRENT, PLANNING]) {
+        lists {
+          entries {
+            media {
+              id
+              title { romaji english }
+              nextAiringEpisode { id episode airingAt }
+              status
+            }
+            progress
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await fetch('https://graphql.anilist.co', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  const data = await response.json();
+
+  return data.data.MediaListCollection.lists
+    .flatMap(list => list.entries)
+    .map(entry => {
+      const media = entry.media;
+
+      let airingAt = media.nextAiringEpisode?.airingAt
+      if(!media.nextAiringEpisode) {
+        switch(media.status) {
+          case "NOT_YET_RELEASED":
+            airingAt = "Unknown"
+            break;
+          default:
+            return null;
+        }
+      }
+
+      return {
+        id: media.id,
+        title: media.title.english || media.title.romaji,
+        episode: media.nextAiringEpisode?.episode,
+        airingAt: airingAt,
+        status: media.status,
+        url: `https://anilist.co/anime/${media.id}`,
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      if(a.airingAt === "Unknown") return 1;
+      if(b.airingAt === "Unknown") return -1;
+      return a.airingAt - b.airingAt;
+    });
+}
+
+// 3️⃣ API endpoints
+app.get('/upcoming', async (req, res) => {
+  try {
+    const upcoming = await fetchUpcoming();
+    res.json(upcoming);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch upcoming episodes' });
+  }
+});
+
+// 4️⃣ Start server
+app.listen(PORT, () => {
+  console.log(`AniList API running on http://localhost:${PORT}`);
+});

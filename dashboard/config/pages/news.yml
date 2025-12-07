@@ -3,17 +3,6 @@
     - size: full
       widgets:
         - type: rss
-          title: Technology
-          style: horizontal-cards
-          feeds:
-            - url: https://techcrunch.com/feed/
-              title: TechCrunch
-            - url: https://www.theverge.com/rss/index.xml
-              title: The Verge
-            - url: https://arstechnica.com/feed/
-              title: Ars Technica
-
-        - type: rss
           title: Finance
           style: horizontal-cards
           feeds:
@@ -32,6 +21,16 @@
               title: Politico (Politics)
             - url: https://rss.politico.com/economy.xml
               title: Politico (Economy)
+              
+        - type: rss
+          title: Technology
+          feeds:
+            - url: https://techcrunch.com/feed/
+              title: TechCrunch
+            - url: https://www.theverge.com/rss/index.xml
+              title: The Verge
+            - url: https://arstechnica.com/feed/
+              title: Ars Technica
 
         - type: group
           widgets:
