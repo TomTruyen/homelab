@@ -5,26 +5,34 @@
   columns:
     - size: small
       widgets:
-        - type: to-do
-
-        - type: calendar
-          first-day-of-week: monday
-          
-        - type: rss
-          limit: 25
-          collapse-after: 5
-          cache: 1h
-          feeds:
-            - url: https://selfh.st/rss/
-              title: selfh.st
-            - url: https://techcrunch.com/feed/
-              title: TechCrunch
-            - url: https://rss.politico.com/politics-news.xml
-              title: Politico (Politics)
-            - url: https://rss.politico.com/economy.xml
-              title: Politico (Economy)
-            - url: https://feeds.bloomberg.com/markets/news.rss
-              title: Bloomberg
+        - type: bookmarks
+          groups:
+            - links:
+                - title: Proton
+                  url: https://account.proton.me/apps
+                - title: Notion
+                  url: https://www.notion.so
+                - title: ChatGPT
+                  url: https://chat.openai.com/
+            - title: Development
+              links:
+                - title: GitHub
+                  url: https://github.com/TomTruyen?tab=repositories
+                - title: Hetzner Cloud
+                  url: https://accounts.hetzner.com/login
+                - title: Namecheap
+                  url: https://www.namecheap.com/myaccount/login
+                - title: Cloudflare
+                  url: https://dash.cloudflare.com/login
+            - title: Media
+              links:
+                - title: YouTube
+                  url: https://www.youtube.com
+                - title: Netflix
+                  url: https://www.netflix.com/browse
+                - title: Anime
+                  url: https://animekai.to/home
+        - type: to-do        
 
     - size: full
       widgets:
@@ -56,37 +64,26 @@
 
     - size: small
       widgets:  
+        - type: calendar
+          first-day-of-week: monday
+
         - type: weather
           location: Bree, Belgium
           units: metric
           hour-format: 12h
 
-        - type: markets
-          markets:
-            - symbol: VUSA.L
-              name: S&P 500 UCITS (Vanguard)
-
-            - symbol: EXSA.DE
-              name: STOXX 600 (iShares)
-
-            - symbol: WSML.L
-              name: MSCI World Small Cap (iShares )
-            
-            - symbol: BTC-USD
-              name: Bitcoin
-              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD
-
-            - symbol: ADA-USD
-              name: Cardano
-              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:ADAUSD
-          
-        - type: releases
-          cache: 1d
-          # Without authentication the Github API allows for up to 60 requests per hour. You can create a
-          # read-only token from your Github account settings and use it here to increase the limit.
-          # token: ...
-          repositories:
-            - glanceapp/glance
-            - go-gitea/gitea
-            - immich-app/immich
-            - syncthing/syncthing
+        - type: rss
+          limit: 25
+          collapse-after: 5
+          cache: 1h
+          feeds:
+            - url: https://selfh.st/rss/
+              title: selfh.st
+            - url: https://techcrunch.com/feed/
+              title: TechCrunch
+            - url: https://rss.politico.com/politics-news.xml
+              title: Politico (Politics)
+            - url: https://rss.politico.com/economy.xml
+              title: Politico (Economy)
+            - url: https://feeds.bloomberg.com/markets/news.rss
+              title: Bloomberg

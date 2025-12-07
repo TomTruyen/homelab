@@ -78,6 +78,19 @@
 
     - size: small
       widgets:
+        - type: bookmarks
+          groups:
+            - title: Finance
+              links:
+                - title: Degiro
+                  url: https://www.degiro.nl/login/en_GB/
+                - title: Coinmarketcap
+                  url: https://coinmarketcap.com/
+                - title: TradingView
+                  url: https://www.tradingview.com/
+                - title: Yahoo Finance
+                  url: https://finance.yahoo.com/
+
         - type: rss
           title: News
           limit: 30
