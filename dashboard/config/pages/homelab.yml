@@ -2,6 +2,11 @@
   columns:
     - size: small
       widgets:
+        - type: dns-stats
+          service: pihole
+          url: http://192.168.0.151:8080 # Raspberry Pi 3B
+          token: ${PIHOLE_API_KEY}
+
         - type: server-stats
           servers:
             - type: local
@@ -12,15 +17,43 @@
             - type: remote
               name: Raspberry PI 3B+
               url: http://192.168.0.151:27973
+
         
-        - type: dns-stats
-          service: pihole
-          url: http://192.168.0.151:8080 # Raspberry Pi 3B
-          token: ${PIHOLE_API_KEY}
+        - type: to-do
         
     - size: full
       widgets:
-        - type: group
-          widgets:
-            - type: hacker-news
-            - type: lobsters
+        - type: docker-containers
+          hide-by-default: false
+
+        - type: monitor
+          cache: 1m
+          title: Homelab Services
+          sites:
+            - title: Pi-hole
+              url: http://192.168.0.151:8080
+            - title: Uptime Kuma
+              url: http://192.168.0.151:8080
+            - title: Portainer
+              url: http://192.168.0.150:9000
+            - title: OpenMediaVault
+              url: http://192.168.0.150:8000
+
+        - type: monitor
+          cache: 1m
+          title: Hosted Services
+          sites:
+            - title: Traefik Dashboard
+              url: http://traefik.tomtruyen.dev
+            - title: Portfolio
+              url: https://tomtruyen.dev
+            - title: Mailsift
+              url: https://mailsift.tomtruyen.dev
+            - title: DroidLaunch
+              url: https://droidlaunch.tomtruyen.dev
+            - title: DroidLaunch Docs
+              url: https://docs.droidlaunch.tomtruyen.dev
+
+        - type: reddit
+          subreddit: selfhosted
+          show-thumbnails: true
