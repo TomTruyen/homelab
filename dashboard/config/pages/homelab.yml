@@ -57,6 +57,10 @@
             - title: DroidLaunch Docs
               url: https://docs.droidlaunch.tomtruyen.dev
 
+    - size: small
+      widgets:
         - type: reddit
           subreddit: selfhosted
           show-thumbnails: true
+          limit: 20
+          collapse-after: 10
