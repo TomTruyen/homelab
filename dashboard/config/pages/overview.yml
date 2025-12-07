@@ -51,85 +51,59 @@
               shortcut: "!gh"
               url: "https://github.com/search?q={QUERY}&type=repositories"
 
+        # Personal Repositories
         - type: group
-          title: DroidLaunch
+          define: &shared-properties
+            type: repository
+            token: ${GITHUB_TOKEN}
+            pull-requests-limit: 3
+            issues-limit: -1
+            commit-limit: -1
           widgets:
-            - type: repository
-              title: Homelab
+            - title: Homelab
               repository: TomTruyen/homelab
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
-            - type: repository
-              title: Fynix
+            - title: Fynix
               repository: TomTruyen/fynix
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
             
-            - type: repository
-              title: Soteria Authenticator
+            - title: Soteria
               repository: TomTruyen/soteria-authenticator
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
-            - type: repository
-              title: GetReminded!
-              repository: TomTruyen/get-reminded
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
-
-            - type: repository
-              title: Portfolio
+            - title: Portfolio
               repository: TomTruyen/tomtruyen-dev-portfolio
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
-            - type: repository
-              title: VPS Deploy (Traefik)
+            - title: VPS-Deploy
               repository: TomTruyen/tomtruyen-dev-traefik-vps-flow
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1  
+              <<: *shared-properties
 
-            - type: repository
-              title: ThijsWoodworking
+            - title: ThijsWoodworking
               repository: TomTruyen/thijswoodworking-v2
-              token: ${GITHUB_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1                
+              <<: *shared-properties
 
-            - type: repository
+        # Organisation Repositories
+        - type: group
+          define: &shared-properties
+            type: repository
+            token: ${GITHUB_TOKEN}
+            pull-requests-limit: 3
+            issues-limit: -1
+            commit-limit: -1
+          widgets:
+            - title: DroidLaunch (Android)
               repository: TomTruyen-Organisation/droidlaunch-kt
-              token: ${GITHUB_ORG_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
-            - type: repository
+            - title: DroidLaunch Site
               repository: TomTruyen-Organisation/droidlaunch-site
-              token: ${GITHUB_ORG_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
-            - type: repository
+            - title: DroidLaunch Docs
               repository: TomTruyen-Organisation/droidlaunch-docs
-              token: ${GITHUB_ORG_TOKEN}
-              pull-requests-limit: 3
-              issues-limit: -1
-              commit-limit: -1
+              <<: *shared-properties
 
         - type: group
           widgets:
