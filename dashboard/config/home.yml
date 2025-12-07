@@ -1,13 +1,30 @@
 - name: Home
+  head-widgets:
+    - type: markets
+      markets:
+        - symbol: VUSA.L
+          name: Vanguard S&P 500 UCITS
+
+        - symbol: EXSA.DE
+          name: iShares STOXX 600
+
+        - symbol: WSML.L
+          name: iShares MSCI World Small Cap
+        
+        - symbol: BTC-USD
+          name: Bitcoin
+          chart-link: https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD
+
+        - symbol: ADA-USD
+          name: Cardano
+          chart-link: https://www.tradingview.com/chart/?symbol=INDEX:ADAUSD
+
   columns:
     - size: small
       widgets:
-        - type: calendar
-          first-day-of-week: monday
-
         - type: rss
-          limit: 10
-          collapse-after: 3
+          limit: 25
+          collapse-after: 10
           cache: 1h
           feeds:
             - url: https://selfh.st/rss/
@@ -45,24 +62,8 @@
           # Optionally hide the location from being displayed in the widget
           # hide-location: true
 
-        - type: markets
-          markets:
-            - symbol: VUSA.L
-              name: Vanguard S&P 500 UCITS
-
-            - symbol: EXSA.DE
-              name: iShares STOXX 600
-
-            - symbol: WSML.L
-              name: iShares MSCI World Small Cap
-            
-            - symbol: BTC-USD
-              name: Bitcoin
-              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:BTCUSD
-
-            - symbol: ADA-USD
-              name: Cardano
-              chart-link: https://www.tradingview.com/chart/?symbol=INDEX:ADAUSD
+        - type: calendar
+          first-day-of-week: monday
           
         - type: releases
           cache: 1d
