@@ -9,7 +9,9 @@
 
         - type: server-stats
           servers:
-            - type: 
+            - type: remote
+              name: Raspberry PI 3B+
+              url: http://192.168.0.151:27973
         
         - type: dns-stats
           service: pihole
