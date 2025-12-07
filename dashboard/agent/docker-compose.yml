@@ -1,0 +1,9 @@
+services:
+  glance-agent:
+    container_name: glance-agent
+    image: glanceapp/agent
+    volumes:
+      # Add your mount points below in the format host_path:container_path with :ro suffix for read-only
+      - /storage:/storage:ro
+    ports:
+      - 27973:27973

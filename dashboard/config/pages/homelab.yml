@@ -5,7 +5,11 @@
         - type: server-stats
           servers:
             - type: local
-              name: Services
+              name: Raspberry Pi 4B
+
+        - type: server-stats
+          servers:
+            - type: 
         
         - type: dns-stats
           service: pihole

@@ -19,6 +19,16 @@ Start the container:
 docker compose up -d
 ```
 
+### Setup `Glance Agent` on Remote Servers:
+
+For Glance to be able to access data from other servers (e.g: a secondary Raspberry PI), we must run its agent on that server.
+
+This can be done by cloning this repository on that server and running:
+```bash 
+cd agent && docker compose up -d
+```
+
+
 ------------------------------------------------------------------------
 
 ## 🌐 Accessing Your Homelab from Outside (Cloudflare Tunnel)
