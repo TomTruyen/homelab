@@ -16,6 +16,7 @@ services:
   homelab-sync:
     build: ./homelab-sync
     container_name: glance-homelab-sync
+    user: "${UID}:${GID}" # Run as the host user to avoid permission issues with git
     volumes:
       - .././:/repo # Mount the homelab repo so that the container can access it
       - ~/.ssh:/root/.ssh:ro # Mount SSH keys for git access
