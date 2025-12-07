@@ -2,7 +2,7 @@
 
 git config --global --add safe.directory /repo
 
-REPO_URL="https://github.com/TomTruyen/homelab.git"
+REPO_URL="git@github.com:TomTruyen/homelab.git"
 REPO_DIR="/repo"
 DOCKER_COMPOSE_DIR="/repo/dashboard"
 

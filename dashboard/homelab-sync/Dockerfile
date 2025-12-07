@@ -1,6 +1,11 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git bash curl
+RUN apk add --no-cache git bash curl openssh
+
+RUN addgroup -g 1000 appuser \
+    && adduser -D -u 1000 -G appuser appuser
+
+USER appuser
 
 # Directory where repo will be cloned
 WORKDIR /repo
