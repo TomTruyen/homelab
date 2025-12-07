@@ -34,7 +34,6 @@ git pull --rebase --autostash
 
 SHOULD_RELOAD_ALL=false
 SHOULD_RELOAD_ANILIST=false
-SHOULD_REBUILD_SYNCER=false
 
 # --- Trigger rules ---
 while IFS= read -r FILE; do
@@ -46,11 +45,6 @@ while IFS= read -r FILE; do
     # 2. Only restart api/anilist
     if [[ "$FILE" == "dashboard/api/anilist/"* ]]; then
         SHOULD_RELOAD_ANILIST=true
-    fi
-
-    # 3. Rebuild syncer if its files changed
-    if [[ "$FILE" == "dashboard/homelab-sync/"* ]]; then
-        SHOULD_REBUILD_UPDATER=true
     fi
 done <<< "$CHANGED_FILES"
 
@@ -69,13 +63,4 @@ if [ "$SHOULD_RELOAD_ANILIST" = true ]; then
     docker compose up -d --force-recreate --build anilist-api
     exit 0
 fi
-
-# MUST BE THE LAST ACTION AS IT RESTARTS SELF SO NO FURTHER ACTIONS CAN BE TAKEN
-if [ "$SHOULD_REBUILD_UPDATER" = true ]; then
-    echo "[GlanceFileSync] Changes in updater detected — rebuilding self..."
-    cd "$DOCKER_COMPOSE_DIR"
-    docker compose up -d --force-recreate --build homelab-sync
-    exit 0
-fi
-
 echo "[GlanceFileSync] Changes pulled, no service restarts required."
