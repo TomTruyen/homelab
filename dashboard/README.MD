@@ -7,16 +7,23 @@ Powered by the Glance dashboard\
 
 ## 🚀 Setup
 
-Rename the environment file:
+Rename the environment file and configure it:
+
+# TODO: Explain each .env variable in a table and how to configure it
 
 ``` bash
 mv .env.example .env
 ```
 
+Configure Custom API `.env` files if needed, e.g.: `api/anilist`
+```bash
+cd api/anilist && mv .env.example .env
+`` `
+
 Start the container:
 
 ``` bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 ### Setup `Glance Agent` on Remote Servers:

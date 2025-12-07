@@ -12,6 +12,16 @@ services:
       - 8080:8080
     env_file: .env
 
+  # Homelab Sync Service
+  homelab-sync:
+    build: ./homelab-sync
+    container_name: glance-homelab-sync
+    volumes:
+      - .././:/repo # Mount the homelab repo so that the container can access it
+      - ~/.ssh:/root/.ssh:ro # Mount SSH keys for git access
+      - /var/run/docker.sock:/var/run/docker.sock # Access Docker socket to restart services
+    restart: unless-stopped
+
   # Custom AniList API Service 
   anilist-api:
     build: ./api/anilist
