@@ -60,7 +60,7 @@ fi
 if [ "$SHOULD_RELOAD_ANILIST" = true ]; then
     echo "[AutoUpdater] Recreating anilist container..."
     cd "$DOCKER_COMPOSE_DIR"
-    docker compose up -d --force-recreate anilist-api
+    docker compose up -d --force-recreate --build anilist-api
     exit 0
 fi
 
