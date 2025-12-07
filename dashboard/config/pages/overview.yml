@@ -5,6 +5,8 @@
   columns:
     - size: small
       widgets:
+        - type: to-do
+
         - type: calendar
           first-day-of-week: monday
           
