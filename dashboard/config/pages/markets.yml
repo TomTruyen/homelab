@@ -70,12 +70,11 @@
               subreddit: wallstreetbets
 
         - type: videos
-          style: grid-cards
-          collapse-after-rows: 3
           channels:
             - UCvSXMi2LebwJEM1s4bz5IBA # New Money
             - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
-            - UCAzhpt9DmG6PnHXjmJTvRGQ # Federal Reserve
+            - UCGy7SkBjcIAgTiwkXEtPnYg # Andrei Jikh
+            - UCkCGANrihzExmu9QiqZpPlQ # How Money Works
 
     - size: small
       widgets:

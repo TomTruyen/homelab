@@ -21,6 +21,8 @@
               title: Politico (Politics)
             - url: https://rss.politico.com/economy.xml
               title: Politico (Economy)
+            - url: https://feeds.bloomberg.com/markets/news.rss
+              title: Bloomberg
 
     - size: full
       widgets:
