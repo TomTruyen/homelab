@@ -30,10 +30,10 @@
           cache: 1m
           title: Homelab Services
           sites:
-            - title: Pi-hole
-              url: http://192.168.0.151:8080
+            - title: Pi-Hole
+              url: http://192.168.0.151:8080/admin  
             - title: Uptime Kuma
-              url: http://192.168.0.151:8080
+              url: http://192.168.0.151:3001
             - title: Portainer
               url: http://192.168.0.150:9000
             - title: OpenMediaVault
