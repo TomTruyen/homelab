@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache git bash curl
+RUN apk add --no-cache git bash curl openssh
 
 # Directory where repo will be cloned
 WORKDIR /repo
