@@ -1,0 +1,8 @@
+- name: News
+  columns:
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+            - type: lobsters

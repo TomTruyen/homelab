@@ -13,6 +13,8 @@ theme:
   custom-css-file: /assets/user.css
 
 pages:
-  - $include: home.yml
-  - $include: homelab.yml
-  - $include: videos.yml
+  - $include: pages/overview.yml
+  - $include: pages/homelab.yml
+  - $include: pages/markets.yml
+  - $include: pages/news.yml
+  - $include: pages/videos.yml
