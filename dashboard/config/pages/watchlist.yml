@@ -1,4 +1,4 @@
-- name: Videos
+- name: Watchlist
   columns:
     - size: full
       widgets:

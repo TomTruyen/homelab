@@ -17,4 +17,4 @@ pages:
   - $include: pages/homelab.yml
   - $include: pages/markets.yml
   - $include: pages/news.yml
-  - $include: pages/videos.yml
+  - $include: pages/watchlist.yml
