@@ -51,7 +51,7 @@
           cache: 1h
           url: http://192.168.0.150:3000/upcoming
           template: |
-            <ul class="list list-gap-10 collapsible-container" data-collapse-after="10">
+            <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
               {{ range .JSON.Array "items" }}
                 <li>
                   <a class="size-h4 color-highlight block line-clamp-2" href="{{ .String "url" }}" target="_blank">
@@ -64,6 +64,35 @@
                     <li>Airing: {{ .String "formattedAiring" }}</li>
                     {{ $status := .String "status" }}
                     {{ if ne $status "NOT_YET_RELEASED" }}
+                      <li class="color-positive">{{ .String "status" }}</li>
+                    {{ else }}
+                      <li class="color-negative">{{ .String "status" }}</li>
+                    {{ end }}
+                  </ul>
+                </li>
+              {{ end }}
+            </ul>
+
+        - type: custom-api
+          title: Available Anime
+          cache: 1h
+          url: http://192.168.0.150:3000/available
+          template: |
+            <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
+              {{ range .JSON.Array "items" }}
+                <li>
+                  <a class="size-h4 color-highlight block line-clamp-2" href="{{ .String "url" }}" target="_blank">
+                    {{ .String "title" }}
+                  </a>
+                  <ul class="list-vertical-text">
+                    {{ if .Int "episode" }}
+                      <li>Episode {{ .Int "episode" }}</li>
+                    {{ end }}
+                    {{ if .Int "totalEpisodes" }}
+                      <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
+                    {{ end }}
+                    {{ $status := .String "status" }}
+                    {{ if eq $status "FINISHED" }}
                       <li class="color-positive">{{ .String "status" }}</li>
                     {{ else }}
                       <li class="color-negative">{{ .String "status" }}</li>

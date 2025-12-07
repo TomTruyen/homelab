@@ -28,6 +28,85 @@ async function getAccessToken() {
   return data.access_token;
 }
 
+// 2️⃣b Fetch available episodes (next unwatched)
+async function fetchAvailable() {
+  const token = await getAccessToken();
+
+  const query = `
+    query {
+      MediaListCollection(userName: "${process.env.ANILIST_USERNAME}", type: ANIME, status_in: [CURRENT, PLANNING]) {
+        lists {
+          entries {
+            media {
+              id
+              title { romaji english }
+              episodes
+              nextAiringEpisode { id episode airingAt }
+              status
+            }
+            progress
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await fetch('https://graphql.anilist.co', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  const data = await response.json();
+
+  return data.data.MediaListCollection.lists
+    .flatMap(list => list.entries)
+    .map(entry => {
+      const media = entry.media;
+      const watched = entry.progress || 0; // number of episodes you've watched
+      const totalEpisodes = media.episodes || null; // total episodes of the anime
+      const nextEpisodeNumber = watched + 1;
+
+      // If the anime is finished or no episodes left to watch, skip
+      if (media.status === "FINISHED" && nextEpisodeNumber > totalEpisodes) return null;
+
+      // If there's no next airing episode and the anime isn't finished, skip
+      if (media.status === "NOT_YET_RELEASED") return null;
+
+      return {
+        id: media.id,
+        title: media.title.english || media.title.romaji,
+        nextEpisode: nextEpisodeNumber,
+        totalEpisodes,
+        url: `https://anilist.co/anime/${media.id}`,
+        status: media.status,
+        airingAt: media.nextAiringEpisode?.airingAt,
+        formattedAiring: media.nextAiringEpisode
+          ? new Date(media.nextAiringEpisode.airingAt * 1000).toLocaleString("en-US", {
+              month: "short",
+              day: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })
+          : "Unknown",
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      // Sort by airing time of next episode if available, unknowns at the end
+      const aUnknown = a.airingAt === undefined || a.airingAt === null;
+      const bUnknown = b.airingAt === undefined || b.airingAt === null;
+      if (aUnknown && bUnknown) return 0;
+      if (aUnknown) return 1;
+      if (bUnknown) return -1;
+      return a.airingAt - b.airingAt;
+    });
+}
+
+
 // 2️⃣ Fetch upcoming episodes
 async function fetchUpcoming() {
   const token = await getAccessToken(); // <-- get a fresh token dynamically
@@ -113,6 +192,16 @@ async function fetchUpcoming() {
 }
 
 // 3️⃣ API endpoints
+app.get('/available', async (req, res) => {
+  try {
+    const available = await fetchAvailable();
+    res.json({ items: available });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch available episodes' });
+  }
+});
+
 app.get('/upcoming', async (req, res) => {
   try {
     const upcoming = await fetchUpcoming();
