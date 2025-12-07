@@ -88,7 +88,7 @@
         - type: group
           define: &shared-properties
             type: repository
-            token: ${GITHUB_TOKEN}
+            token: ${GITHUB_ORG_TOKEN}
             pull-requests-limit: 3
             issues-limit: -1
             commit-limit: -1
