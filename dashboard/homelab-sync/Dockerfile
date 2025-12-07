@@ -5,6 +5,9 @@ RUN apk add --no-cache git bash curl openssh
 RUN addgroup -g 1000 appuser \
     && adduser -D -u 1000 -G appuser appuser
 
+RUN mkdir -p /root/.ssh && \
+    ssh-keyscan github.com >> /root/.ssh/known_hosts
+
 # Directory where repo will be cloned
 WORKDIR /repo
 
