@@ -110,7 +110,7 @@ async function fetchUpcoming() {
 app.get('/upcoming', async (req, res) => {
   try {
     const upcoming = await fetchUpcoming();
-    res.json(upcoming);
+    res.json({ items: upcoming });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch upcoming episodes' });
