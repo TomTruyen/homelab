@@ -51,19 +51,19 @@
           cache: 1h
           url: http://192.168.0.150:3000/upcoming
           template: |
-            <ul class="list-none p-0 m-0">
-              {{ range .JSON.Array "items" }}
-                <li class="mb-2">
-                  <a href="{{ .String "url" }}" target="_blank" class="font-bold text-blue-500 hover:underline">
+            <ul class="list list-gap-6 collapsible-container" data-collapse-after="5">
+              {{ range .JSON.Array }}
+                <li>
+                  <a class="size-h4 color-highlight block text-truncate" href="{{ .String "url" }}" target="_blank">
                     {{ .String "title" }}
                   </a>
-                  {{ if .Int "episode" }}
-                    - Episode {{ .Int "episode" }}
-                  {{ end }}
-                  <br/>
-                  <span class="text-sm text-gray-400">
-                    Airing: {{ .String "formattedAiring" }}
-                  </span>
+                  <ul class="list-horizontal-text">
+                    {{ if .Int "episode" }}
+                      <li>Episode {{ .Int "episode" }}</li>
+                    {{ end }}
+                    <li>Airing: {{ .String "formattedAiring" }}</li>
+                    <li>Status: {{ .String "status" }}</li>
+                  </ul>
                 </li>
               {{ end }}
             </ul>
