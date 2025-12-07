@@ -100,8 +100,14 @@ async function fetchUpcoming() {
   })
   .filter(Boolean)
   .sort((a, b) => {
-    if (a.airingAt === "Unknown") return 1;
-    if (b.airingAt === "Unknown") return -1;
+    const aUnknown = a.airingAt === "Unknown" || a.airingAt === undefined;
+    const bUnknown = b.airingAt === "Unknown" || b.airingAt === undefined;
+
+    if (aUnknown && bUnknown) return 0;   // both unknown, keep original order
+    if (aUnknown) return 1;               // a unknown, b known → a after b
+    if (bUnknown) return -1;              // b unknown, a known → b after a
+
+    // both known, sort numerically
     return a.airingAt - b.airingAt;
   });
 }
