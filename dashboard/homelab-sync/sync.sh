@@ -52,8 +52,8 @@ done <<< "$CHANGED_FILES"
 if [ "$SHOULD_RELOAD_ALL" = true ]; then
     echo "[GlanceFileSync] Reloading ALL services..."
     cd "$DOCKER_COMPOSE_DIR"
-    docker compose down
-    docker compose up -d --force-recreate
+    docker compose up -d --force-recreate --build glance
+    docker compose up -d --force-recreate --build anilist-api
     exit 0
 fi
 
