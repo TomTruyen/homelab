@@ -43,7 +43,7 @@ export async function fetchWatching() {
 
             return {
                 title: media.title.english || media.title.romaji,
-                watched: (entry.progress || 0) + 1, // Next episode to watch
+                nextEpisode: (entry.progress || 0) + 1, // Next episode to watch
                 totalEpisodes: media.episodes || null,
                 url: `https://anilist.co/anime/${media.id}`
             };
