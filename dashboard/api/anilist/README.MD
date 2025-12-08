@@ -53,7 +53,7 @@ Returns a list of anime you're currently watching with episode progress informat
   "items": [
     {
       "title": "Anime Title",
-      "watched": 4,
+      "nextEpisode": 4,
       "totalEpisodes": 12,
       "url": "https://anilist.co/anime/12345"
     }

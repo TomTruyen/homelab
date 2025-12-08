@@ -60,8 +60,8 @@
                     {{ .String "title" }}
                   </a>
                   <ul class="list-vertical-text">
-                    {{ if .Int "episode" }}
-                      <li>Episode {{ .Int "episode" }}</li>
+                    {{ if .Int "nextEpisode" }}
+                      <li>Next Episode: {{ .Int "nextEpisode" }}</li>
                     {{ end }}
                     {{ if .Int "totalEpisodes" }}
                       <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
