@@ -63,12 +63,8 @@
                     {{ if .Int "episode" }}
                       <li>Episode {{ .Int "episode" }}</li>
                     {{ end }}
-                    <li>Airing: {{ .String "formattedAiring" }}</li>
-                    {{ $status := .String "status" }}
-                    {{ if ne $status "NOT_YET_RELEASED" }}
-                      <li class="color-positive">{{ .String "status" }}</li>
-                    {{ else }}
-                      <li class="color-negative">{{ .String "status" }}</li>
+                    {{ if .Int "totalEpisodes" }}
+                      <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                     {{ end }}
                   </ul>
                 </li>
@@ -90,8 +86,12 @@
                     {{ if .Int "episode" }}
                       <li>Episode {{ .Int "episode" }}</li>
                     {{ end }}
-                    {{ if .Int "totalEpisodes" }}
-                      <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
+                    <li>Airing: {{ .String "formattedAiring" }}</li>
+                    {{ $status := .String "status" }}
+                    {{ if ne $status "NOT_YET_RELEASED" }}
+                      <li class="color-positive">{{ .String "status" }}</li>
+                    {{ else }}
+                      <li class="color-negative">{{ .String "status" }}</li>
                     {{ end }}
                   </ul>
                 </li>
