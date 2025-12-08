@@ -49,9 +49,9 @@
     - size: small
       widgets:
         - type: custom-api
-          title: Upcoming Anime
+          title: Watching Anime
           cache: 1h
-          url: http://192.168.0.150:3000/upcoming
+          url: http://192.168.0.150:3000/watching
           template: |
             <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
               {{ range .JSON.Array "items" }}
@@ -69,6 +69,29 @@
                       <li class="color-positive">{{ .String "status" }}</li>
                     {{ else }}
                       <li class="color-negative">{{ .String "status" }}</li>
+                    {{ end }}
+                  </ul>
+                </li>
+              {{ end }}
+            </ul>
+      
+        - type: custom-api
+          title: Upcoming Anime
+          cache: 1h
+          url: http://192.168.0.150:3000/upcoming
+          template: |
+            <ul class="list list-gap-10 collapsible-container" data-collapse-after="5">
+              {{ range .JSON.Array "items" }}
+                <li>
+                  <a class="size-h4 color-highlight block line-clamp-2" href="{{ .String "url" }}" target="_blank">
+                    {{ .String "title" }}
+                  </a>
+                  <ul class="list-vertical-text">
+                    {{ if .Int "episode" }}
+                      <li>Episode {{ .Int "episode" }}</li>
+                    {{ end }}
+                    {{ if .Int "totalEpisodes" }}
+                      <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                     {{ end }}
                   </ul>
                 </li>

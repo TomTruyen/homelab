@@ -5,6 +5,7 @@ This API provides endpoints to fetch anime information from your AniList account
 ## What It Does
 
 This service integrates with [AniList](https://anilist.co/) to display:
+- **Currently Watching**: Anime you're actively watching with progress tracking
 - **Available Episodes**: Anime you're currently watching or planning to watch, sorted by progress and airing date
 - **Upcoming Episodes**: Upcoming episodes for your anime list with airing times
 
@@ -41,6 +42,24 @@ docker compose up -d --build --force-recreate
 ```
 
 ## API Endpoints
+
+### GET `/watching`
+
+Returns a list of anime you're currently watching with episode progress information.
+
+**Response:**
+```json
+{
+  "items": [
+    {
+      "title": "Anime Title",
+      "watched": 4,
+      "totalEpisodes": 12,
+      "url": "https://anilist.co/anime/12345"
+    }
+  ]
+}
+```
 
 ### GET `/available`
 
