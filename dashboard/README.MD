@@ -7,34 +7,35 @@ Powered by the Glance dashboard\
 
 ## 🚀 Setup
 
-Rename the environment file and configure it:
+### Environment Variables (Dashboard)
 
-# TODO: Explain each .env variable in a table and how to configure it
+Rename the environment file and configure it:
 
 ``` bash
 mv .env.example .env
 ```
 
-Configure Custom API `.env` files if needed, e.g.: `api/anilist`
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `PIHOLE_API_KEY` | No | API key for Pi-hole integration. Get it from your Pi-hole admin panel at `http://<pi-hole-ip>:8080/admin/settings.php?tab=api` (v5 only; v6+ uses different authentication) |
+| `TRAEFIK_USERNAME` | No | Username for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
+| `TRAEFIK_PASSWORD` | No | Password for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
+| `GITHUB_TOKEN` | No | Personal access token from GitHub with read-only permissions for commits, pull requests, issues, and contents (for releases) |
+| `GITHUB_ORG_TOKEN` | No | Optional organization token from GitHub for accessing organization repositories (read-only) |
+
+### Custom APIs
+
+If you're using custom APIs (e.g., AniList), configure their environment variables as needed. See the [API documentation](./api/README.MD) for setup instructions for each service.
+
+### Glance Agent (Remote Servers)
+
+To access data from remote servers in your homelab (e.g., a secondary Raspberry Pi), you'll need to run the Glance Agent on those servers. See the [Agent documentation](./agent/README.MD) for complete setup instructions.
+
+### Start the Container
+
 ```bash
-cd api/anilist && mv .env.example .env
-`` `
-
-Start the container:
-
-``` bash
-docker compose up -d --build
+docker compose up -d --build --force-recreate
 ```
-
-### Setup `Glance Agent` on Remote Servers:
-
-For Glance to be able to access data from other servers (e.g: a secondary Raspberry PI), we must run its agent on that server.
-
-This can be done by cloning this repository on that server and running:
-```bash 
-cd agent && docker compose up -d
-```
-
 
 ------------------------------------------------------------------------
 
