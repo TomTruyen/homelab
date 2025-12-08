@@ -31,6 +31,10 @@ If you're using custom APIs (e.g., AniList), configure their environment variabl
 
 To access data from remote servers in your homelab (e.g., a secondary Raspberry Pi), you'll need to run the Glance Agent on those servers. See the [Agent documentation](./agent/README.MD) for complete setup instructions.
 
+### Homelab Sync (Auto-Update Service)
+
+To automatically sync configuration changes from GitHub and restart affected services, see the [Homelab Sync documentation](./homelab-sync/README.MD) for setup and usage instructions.
+
 ### Start the Container
 
 ```bash
