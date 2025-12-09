@@ -1,3 +1,7 @@
+set -euo pipefail
+
+tmpfile="$(mktemp)"
+
 # Header
 cat > "$tmpfile" <<'YAML'
 version: 2
@@ -18,7 +22,10 @@ find . -regex '.*/\(docker-\)?compose\(-[\w]+\)?\(?>\.[\w-]+\)?\.ya?ml' -print0 
 # Append the schedule block
 cat >> "$tmpfile" <<'YAML'
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "sunday"
+      time: "06:00"
+      timezone: "Europe/Brussels"
 YAML
 
 # Install if changed
