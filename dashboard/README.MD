@@ -17,7 +17,7 @@ mv .env.example .env
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `PIHOLE_PASSWORD` | No | Password from PiHole (v6) |
+| `PIHOLE_PASSWORD` | No | App Password (not regular password) from PiHole (v6) => Settings -> Web Interface / API -> Configure app password  |
 | `TRAEFIK_USERNAME` | No | Username for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
 | `TRAEFIK_PASSWORD` | No | Password for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
 | `GITHUB_TOKEN` | No | Personal access token from GitHub with read-only permissions for commits, pull requests, issues, and contents (for releases) |
