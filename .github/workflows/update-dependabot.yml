@@ -18,13 +18,13 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Generate dependabot.yml
         run: ./update-dependabot.sh
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "chore: update dependabot.yml [automated]"
           title: "Chore: Update dependabot.yml"
