@@ -6,13 +6,11 @@ services:
       - "53:53/tcp"
       - "53:53/udp"
       - "8080:80/tcp"
+      - "443:433/tcp"
     environment:
       TZ: 'Europe/Brussels'
-      PIHOLE_DNS_1: 8.8.8.8
-      PIHOLE_DNS_2: 8.8.8.4
+      FTLCONF_webserver_api_password: "V69X@yASS7#E4RANZCVH"
+      FTLCONF_dns_listeningMode: 'ALL'
     volumes:
       - './etc-pihole:/etc/pihole'
-      - './etc-dnsmasq.d:/etc/dnsmasq.d'
     restart: unless-stopped
-    dns:
-      - 127.0.0.1
