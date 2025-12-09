@@ -5,7 +5,7 @@
         - type: dns-stats
           service: pihole-v6
           url: http://192.168.0.151:8080 # Raspberry Pi 3B
-          token: ${PIHOLE_PASSWORD}
+          password: ${PIHOLE_PASSWORD}
 
         - type: server-stats
           servers:
@@ -20,6 +20,7 @@
 
         - type: releases
           show-source-icon: true
+          token: ${GITHUB_TOKEN}
           repositories:
             - glanceapp/glance
             - traefik/traefik
