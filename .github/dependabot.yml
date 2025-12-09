@@ -1,12 +1,6 @@
 version: 2
 updates:
   - package-ecosystem: "docker-compose"
-    directories:
-      - "/dashboard"
-      - "/dashboard/agent"
-      - "/services/pi-hole"
-      - "/services/portainer"
-      - "/services/uptime-kuma"
     schedule:
       interval: "weekly"
       day: "sunday"
