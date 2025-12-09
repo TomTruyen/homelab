@@ -13,7 +13,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  update:
+  update-dependabot-config:
     runs-on: ubuntu-latest
 
     steps:
