@@ -17,7 +17,7 @@ mv .env.example .env
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `PIHOLE_API_KEY` | No | API key for Pi-hole integration. Get it from your Pi-hole admin panel at `http://<pi-hole-ip>:8080/admin/settings.php?tab=api` (v5 only; v6+ uses different authentication) |
+| `PIHOLE_PASSWORD` | No | Password from PiHole (v6) |
 | `TRAEFIK_USERNAME` | No | Username for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
 | `TRAEFIK_PASSWORD` | No | Password for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
 | `GITHUB_TOKEN` | No | Personal access token from GitHub with read-only permissions for commits, pull requests, issues, and contents (for releases) |

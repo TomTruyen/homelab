@@ -3,9 +3,9 @@
     - size: small
       widgets:
         - type: dns-stats
-          service: pihole
+          service: pihole-v6
           url: http://192.168.0.151:8080 # Raspberry Pi 3B
-          token: ${PIHOLE_API_KEY}
+          token: ${PIHOLE_PASSWORD}
 
         - type: server-stats
           servers:
