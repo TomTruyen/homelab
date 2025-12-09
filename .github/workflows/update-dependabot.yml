@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate dependabot.yml
-        run: ./generate-dependabot.sh
+        run: ./update-dependabot.sh
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
