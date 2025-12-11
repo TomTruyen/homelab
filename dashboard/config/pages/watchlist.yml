@@ -69,8 +69,8 @@
                         <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                       {{ end }}
                       <li>
-                        <a class="color-positive block" href="{{ .String "watchUrl" }}" target="_blank">
-                          Continue Watching
+                        <a class="color-highlight block" href="{{ .String "watchUrl" }}" target="_blank">
+                          Watch ↗
                         </a>
                       </li>
                     </ul>
@@ -129,15 +129,9 @@
                       {{ if .Int "totalEpisodes" }}
                         <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                       {{ end }}
-                      {{ $status := .String "status" }}
-                      {{ if eq $status "FINISHED" }}
-                        <li class="color-positive">{{ .String "status" }}</li>
-                      {{ else }}
-                        <li class="color-negative">{{ .String "status" }}</li>
-                      {{ end }}
                       <li>
-                        <a class="color-positive block" href="{{ .String "watchUrl" }}" target="_blank">
-                          Start Watching
+                        <a class="color-highlight block" href="{{ .String "watchUrl" }}" target="_blank">
+                          Watch ↗
                         </a>
                       </li>
                     </ul>
