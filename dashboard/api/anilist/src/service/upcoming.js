@@ -16,6 +16,7 @@ export async function fetchUpcoming() {
               status
             }
             progress
+            status
           }
         }
       }
@@ -66,8 +67,9 @@ export async function fetchUpcoming() {
       episode: media.nextAiringEpisode?.episode,
       airingAt: airingAt,
       formattedAiring,
-      status: media.status,
-      url: `https://anilist.co/anime/${media.id}`
+      status: entry.status, // Personal Status. `media.status` is the overall anime status.
+      url: `https://anilist.co/anime/${media.id}`,
+      watchUrl: `https://anikai.to/browser?keyword=${media.title.english || media.title.romaji}`,
     };
   })
   .filter(Boolean)

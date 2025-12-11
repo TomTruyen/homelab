@@ -6,7 +6,7 @@ export async function fetchAvailable() {
 
     const query = `
     query {
-      MediaListCollection(userName: "${process.env.ANILIST_USERNAME}", type: ANIME, status_in: [CURRENT, PLANNING]) {
+      MediaListCollection(userName: "${process.env.ANILIST_USERNAME}", type: ANIME, status_in: [PLANNING]) {
         lists {
           entries {
             media {
@@ -55,6 +55,7 @@ export async function fetchAvailable() {
                 totalEpisodes,
                 watched,
                 url: `https://anilist.co/anime/${media.id}`,
+                watchUrl: `https://anikai.to/browser?keyword=${media.title.english || media.title.romaji}`,
                 status: media.status,
                 airingAt: media.nextAiringEpisode?.airingAt,
                 formattedAiring: media.nextAiringEpisode

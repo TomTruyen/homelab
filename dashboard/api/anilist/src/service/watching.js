@@ -45,7 +45,8 @@ export async function fetchWatching() {
                 title: media.title.english || media.title.romaji,
                 nextEpisode: (entry.progress || 0) + 1, // Next episode to watch
                 totalEpisodes: media.episodes || null,
-                url: `https://anilist.co/anime/${media.id}`
+                url: `https://anilist.co/anime/${media.id}`,
+                watchUrl: `https://anikai.to/browser?keyword=${media.title.english || media.title.romaji}`,
             };
         })
         .sort((a, b) => b.watched - a.watched); // ← DESC sort
