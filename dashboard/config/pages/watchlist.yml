@@ -69,8 +69,8 @@
                         <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                       {{ end }}
                       <li>
-                        <a class="color-highlight block" href="{{ .String "watchUrl" }}" target="_blank">
-                          Watch ↗
+                        <a class="color-positive block" href="{{ .String "watchUrl" }}" target="_blank">
+                          Watch
                         </a>
                       </li>
                     </ul>
@@ -130,8 +130,8 @@
                         <li>Total Episodes: {{ .Int "totalEpisodes" }}</li>
                       {{ end }}
                       <li>
-                        <a class="color-highlight block" href="{{ .String "watchUrl" }}" target="_blank">
-                          Watch ↗
+                        <a class="color-positive block" href="{{ .String "watchUrl" }}" target="_blank">
+                          Watch
                         </a>
                       </li>
                     </ul>
