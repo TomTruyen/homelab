@@ -1,6 +1,12 @@
 server:
   assets-path: /app/assets
 
+branding:
+  logo-url: /assets/logo.png
+  favicon-url: /assets/logo.png
+  app-name: "Tom's Homelab Dashboard"
+  app-icon-url: "/assets/logo.png"
+
 theme:
   # Catppuccin Frappe Theme
   background-color: 229 19 23
