@@ -4,6 +4,8 @@ import { getAccessToken } from "./token.js";
 export async function fetchUpcoming() {
   const token = await getAccessToken(); // <-- get a fresh token dynamically
 
+  console.log(token);
+
   const query = `
     query {
       MediaListCollection(userName: "${process.env.ANILIST_USERNAME}", type: ANIME, status_in: [CURRENT, PLANNING]) {

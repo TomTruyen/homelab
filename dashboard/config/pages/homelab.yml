@@ -31,18 +31,23 @@
         
     - size: full
       widgets:
+        # Icons from: https://dashboardicons.com/icons 
         - type: monitor
           cache: 1m
           title: Homelab Services
           sites:
             - title: Pi-Hole
               url: http://192.168.0.151:8080/admin  
+              icon: /assets/pihole-logo.png
             - title: Uptime Kuma
               url: http://192.168.0.151:3001
+              icon: /assets/uptime-kuma-logo.png
             - title: Portainer
               url: http://192.168.0.150:9000
+              icon: /assets/portainer-logo.png
             - title: OpenMediaVault
               url: http://192.168.0.150:8000
+              icon: /assets/openmediavault-logo.png
 
         - type: monitor
           cache: 1m
@@ -50,17 +55,22 @@
           sites:
             - title: Traefik Dashboard
               url: http://traefik.tomtruyen.dev
+              icon: /assets/traefik-logo.png
               basic-auth:
                 username: ${TRAEFIK_USERNAME}
                 password: ${TRAEFIK_PASSWORD}
             - title: Portfolio
               url: https://tomtruyen.dev
+              icon: /assets/portfolio-logo.png
             - title: Mailsift
               url: https://mailsift.tomtruyen.dev
+              icon: /assets/mailsift-logo.png
             - title: DroidLaunch
               url: https://droidlaunch.tomtruyen.dev
+              icon: /assets/droidlaunch-logo.png
             - title: DroidLaunch Docs
               url: https://docs.droidlaunch.tomtruyen.dev
+              icon: /assets/droidlaunch-logo.png
 
         - type: docker-containers
           hide-by-default: false
