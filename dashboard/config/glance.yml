@@ -5,8 +5,8 @@ branding:
   logo-url: /assets/logo.png
   favicon-url: /assets/logo.png
   app-name: "Tom's Homelab Dashboard"
-  app-icon-url: "/assets/logo.png"
-  app-background-color: "#151515"
+  app-icon-url: "/assets/app-icon.png"
+  app-background-color: "#ffffff"
 
 theme:
   # Catppuccin Frappe Theme
