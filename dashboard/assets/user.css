@@ -1,0 +1,14 @@
+.watch-button {
+    padding-left: 1px; /* Small offset to make it look more natural */
+    color: var(--bookmarks-group-color);
+    display: block;
+}
+
+.watch-button::after {
+    content: '↗' / "";
+    margin-left: "0.5em";
+    display: inline-block;
+    position: relative;  
+    top: 0.15em;
+    color: var(--bookmarks-group-color);
+}
