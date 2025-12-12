@@ -178,9 +178,11 @@
                     <div class="docker-text">
                       <div class="docker-name">
                         {{ .String "Names.0" | trimPrefix "/" }}
-                        <li class="no-bullets" data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
-                          <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
-                        </li>
+                        <ul class="list-horizontal-text no-bullets">
+                          <li data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
+                            <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                          </li>
+                        </ul>
                       </div>
                       <div class="docker-meta">
                         {{ .String "Image" }}
@@ -298,9 +300,11 @@
                     <div class="docker-text">
                       <div class="docker-name">
                         {{ .String "Names.0" | trimPrefix "/" }}
-                        <li class="no-bullets" data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
-                          <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
-                        </li>
+                        <ul class="list-horizontal-text no-bullets">
+                          <li data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
+                            <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                          </li>
+                        </ul>
                       </div>
                       <div class="docker-meta">
                         {{ .String "Image" }}
