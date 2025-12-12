@@ -85,19 +85,67 @@
                 X-API-Key: ${PORTAINER_API_KEY_PI4B}
               template: |
                 <style>
-                  .list-horizontal-text.no-bullets > *:not(:last-child)::after {
+                  .portainer-icon {
+                    display: block;
+                    opacity: 0.8;
+                    filter: grayscale(0.4);
+                    object-fit: contain;
+                    aspect-ratio: 1 / 1;
+                    width: 3.2rem;
+                    position: relative;
+                    top: -0.1rem;
+                  }
+                  .portainer-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                  }
+                  .docker-icon {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                    opacity: 0.8;
+                    filter: grayscale(0.4);
+                    aspect-ratio: 1 / 1;
+                  }
+                  .docker-list { 
+                    display: flex; 
+                    flex-direction: column; 
+                  }
+                  .docker-item { 
+                    display: flex; 
+                    align-items: center; 
+                    gap: 10px; 
+                    padding: 8px 0;
+                    border-top: 1px solid var(--color-separator);
+
+                  }
+                  .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+                  .docker-text { display: flex; flex-direction: column; min-width: 0; }
+                  .docker-name { 
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 600; 
+                    white-space: nowrap; 
+                    overflow: hidden; 
+                    text-overflow: ellipsis; 
+                  }
+                  .docker-name
+                  .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
+                  no-bullets > *:not(:last-child)::after {
                       content: none !important;
                   }
-                  .list-horizontal-text.no-bullets > *:not(:last-child) {
+                  no-bullets > *:not(:last-child) {
                     margin-right: 1em;
                   }
                 </style>
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <div style="width:40px; height:40px; flex-shrink:0; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-                      <img src="assets/portainer-logo.png" width="24" height="24" style="object-fit:contain;">
+                <div style="display:flex; align-items:center; gap:12px; padding-bottom: 8px;">
+                    <div>
+                      <img src="assets/portainer-logo.png" class="portainer-icon cached finished-transition">
                     </div>
                     <div style="flex-grow:1; min-width:0;">
-                      <a class="size-h4 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
+                      <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
                         {{ .JSON.String "Name" }}
                         <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-positive); display: inline-block; vertical-align: middle;"></span>
                       </a>
@@ -123,25 +171,30 @@
                       </ul>
                     </div>
                 </div>
-                <div class="margin-block-2" style="margin-top: 1em">
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <div>
-                      <div class="size-h5">Running</div>
-                      <div class="size-h3 color-highlight">{{ .JSON.Int "Snapshots.0.RunningContainerCount" }}</div>
-                    </div>
-                    <div>
-                      <div class="size-h5">Healthy</div>
-                      <div class="size-h3 color-highlight">{{ .JSON.Int "Snapshots.0.HealthyContainerCount" }}</div>
-                    </div>
-                    <div>
-                      <div class="size-h5">Stopped</div>
-                      <div class="size-h3 color-highlight">{{ .JSON.Int "Snapshots.0.StoppedContainerCount" }}</div>
-                    </div>
-                    <div>
-                      <div class="size-h5">Unhealthy</div>
-                      <div class="size-h3 color-highlight">{{ .JSON.Int "Snapshots.0.DockerSnapshotRaw.Containers.#(Health=\"unhealthy\").#" }}</div>
+                <div class="docker-list">
+                  {{ range .JSON.Array "Snapshots.0.DockerSnapshotRaw.Containers" }}
+                  <div class="docker-item">
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/docker.svg" class="docker-icon" />
+                    <div class="docker-text">
+                      <div class="docker-name">
+                        {{ .String "Names.0" | trimPrefix "/" }}
+                        <li class="no-bullets" data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
+                          <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                        </li>
+                      </div>
+                      <div class="docker-meta">
+                        {{ .String "Image" }}
+                        {{ $port := "" }}
+                        {{ range .Array "Ports" }}
+                          {{ if eq (.String "IP") "::" }}
+                            {{ $port = printf ":%d" (.Int "PublicPort") }}
+                          {{ end }}
+                        {{ end }}
+                        {{ if ne $port "" }}({{ $port }}){{ end }}
+                      </div>
                     </div>
                   </div>
+                  {{ end }}
                 </div>
 
             - type: custom-api
@@ -198,14 +251,12 @@
                     overflow: hidden; 
                     text-overflow: ellipsis; 
                   }
-                  .docker-name::after {
-                    content: none !important;
-                  }
+                  .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
-                  .list-horizontal-text.no-bullets > *:not(:last-child)::after {
+                  no-bullets > *:not(:last-child)::after {
                       content: none !important;
                   }
-                  .list-horizontal-text.no-bullets > *:not(:last-child) {
+                  no-bullets > *:not(:last-child) {
                     margin-right: 1em;
                   }
                 </style>
@@ -247,7 +298,7 @@
                     <div class="docker-text">
                       <div class="docker-name">
                         {{ .String "Names.0" | trimPrefix "/" }}
-                        <li data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
+                        <li class="no-bullets" data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
                           <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
                         </li>
                       </div>
@@ -259,7 +310,7 @@
                             {{ $port = printf ":%d" (.Int "PublicPort") }}
                           {{ end }}
                         {{ end }}
-                        {{ if ne $port "" }}({{ $port | trimPrefix ":" }}){{ end }}
+                        {{ if ne $port "" }}({{ $port }}){{ end }}
                       </div>
                     </div>
                   </div>
