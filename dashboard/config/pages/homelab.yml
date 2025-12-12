@@ -152,8 +152,32 @@
                 X-API-Key: ${PORTAINER_API_KEY_PI3B}
               template: |
                 <style>
-                  .docker-list { display: flex; flex-direction: column; gap: 0.8em; }
-                  .docker-item { display: flex; align-items: center; gap: 10px; }
+                  .portainer-icon {
+                    display: block;
+                    opacity: 0.8;
+                    filter: grayscale(0.4);
+                    object-fit: contain;
+                    aspect-ratio: 1 / 1;
+                    width: 3.2rem;
+                    position: relative;
+                    top: -0.1rem;
+                    transition: filter 0.3s, opacity 0.3s;
+                  }
+                  .portainer-icon: hover {
+                    filter: grayscale(0);
+                    opacity: 1;
+                  }
+                  .docker-list { 
+                    display: flex; 
+                    flex-direction: column; 
+                    gap: 0.8em; 
+                  }
+                  .docker-item { 
+                    display: flex; 
+                    align-items: center; 
+                    gap: 10px; 
+                    border-top: 1px solid var(--color-separator)
+                  }
                   .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
                   .docker-text { display: flex; flex-direction: column; min-width: 0; }
                   .docker-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -166,11 +190,11 @@
                   }
                 </style>
                 <div style="display:flex; align-items:center; gap:12px;">
-                    <div style="width:40px; height:40px; flex-shrink:0; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-                      <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/portainer-dark.svg" width="24" height="24" style="object-fit:contain;">
+                    <div class="portainer-icon cached finished-transition">
+                      <img src="assets/portainer-logo.png" width="24" height="24" style="object-fit:contain;">
                     </div>
                     <div style="flex-grow:1; min-width:0;">
-                      <a class="size-h4 block text-truncate color-highlight" href="http://192.168.0.151:9000" target="_blank" rel="noopener">
+                      <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.151:9000" target="_blank" rel="noopener">
                         {{ .JSON.String "Name" }}
                         <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-positive); display: inline-block; vertical-align: middle;"></span>
                       </a>
