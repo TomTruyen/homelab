@@ -163,20 +163,26 @@
                     top: -0.1rem;
                     transition: filter 0.3s, opacity 0.3s;
                   }
-                  .portainer-icon: hover {
+                  .portainer-icon::hover {
                     filter: grayscale(0);
                     opacity: 1;
+                  }
+                  .portainer-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
                   }
                   .docker-list { 
                     display: flex; 
                     flex-direction: column; 
-                    gap: 0.8em; 
                   }
                   .docker-item { 
                     display: flex; 
                     align-items: center; 
                     gap: 10px; 
-                    border-top: 1px solid var(--color-separator)
+                    padding: 8px 0;
+                    border-top: 1px solid var(--color-separator);
+
                   }
                   .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
                   .docker-text { display: flex; flex-direction: column; min-width: 0; }
@@ -189,9 +195,9 @@
                     margin-right: 1em;
                   }
                 </style>
-                <div style="display:flex; align-items:center; gap:12px;">
-                    <div class="portainer-icon cached finished-transition">
-                      <img src="assets/portainer-logo.png" width="24" height="24" style="object-fit:contain;">
+                <div style="display:flex; align-items:center; gap:12px; padding-bottom: 8px;">
+                    <div>
+                      <img src="assets/portainer-logo.png" class="portainer-icon cached finished-transition">
                     </div>
                     <div style="flex-grow:1; min-width:0;">
                       <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.151:9000" target="_blank" rel="noopener">
@@ -227,7 +233,9 @@
                     <div class="docker-text">
                       <div class="docker-name">
                         {{ .String "Names.0" | trimPrefix "/" }}
+                        <li data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
                         <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                        </li>
                       </div>
                       <div class="docker-meta">
                         {{ .String "Image" }}
@@ -237,7 +245,7 @@
                             {{ $port = printf ":%d" (.Int "PublicPort") }}
                           {{ end }}
                         {{ end }}
-                        {{ $port }}
+                        ({{ $port }})
                       </div>
                     </div>
                   </div>
