@@ -42,12 +42,15 @@
             - title: Uptime Kuma
               url: http://192.168.0.151:3001
               icon: /assets/uptime-kuma-logo.png
-            - title: Portainer
-              url: http://192.168.0.150:9000
-              icon: /assets/portainer-logo.png
             - title: OpenMediaVault
               url: http://192.168.0.150:8000
               icon: /assets/openmediavault-logo.png
+            - title: Portainer (PI 4B)
+              url: http://192.168.0.150:9000
+              icon: /assets/portainer-logo.png
+            - title: Portainer (PI 3B+)
+              url: http://192.168.0.151:9000
+              icon: /assets/portainer-logo.png
 
         - type: monitor
           cache: 1m
