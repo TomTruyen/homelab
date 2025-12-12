@@ -25,7 +25,6 @@
             - glanceapp/glance
             - traefik/traefik
             - pi-hole/pi-hole
-            - openmediavault/openmediavault
             - portainer/portainer
             - louislam/uptime-kuma
         
