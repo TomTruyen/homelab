@@ -253,10 +253,10 @@
                   }
                   .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
-                  no-bullets > *:not(:last-child)::after {
+                  .no-bullets::after {
                       content: none !important;
                   }
-                  no-bullets > *:not(:last-child) {
+                  .list-horizontal-text.no-bullets > *:not(:last-child) {
                     margin-right: 1em;
                   }
                 </style>
