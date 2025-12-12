@@ -78,8 +78,8 @@
         - type: split-column
           widgets:
             - type: custom-api
-              title: Portainer
-              cache: 1h
+              title: Docker (Raspberry PI 4B)
+              cache: 15m
               url: http://192.168.0.150:9000/api/endpoints/2 # This value comes from the URL, e.g.: http://192.168.0.150:9000/#!/2/docker/dashboard (This is the URL when going to Dashboard page)
               headers:
                 X-API-Key: ${PORTAINER_API_KEY_PI4B}
@@ -133,10 +133,10 @@
                   }
                   .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
-                  no-bullets > *:not(:last-child)::after {
+                  .list-horizontal-text.no-bullets > *:not(:last-child)::after {
                       content: none !important;
                   }
-                  no-bullets > *:not(:last-child) {
+                  .list-horizontal-text.no-bullets > *:not(:last-child) {
                     margin-right: 1em;
                   }
                 </style>
@@ -200,8 +200,8 @@
                 </div>
 
             - type: custom-api
-              title: Portainer
-              cache: 1h
+              title: Docker (Raspberry PI 3B+)
+              cache: 15m
               url: http://192.168.0.151:9000/api/endpoints/2 # This value comes from the URL, e.g.: http://192.168.0.151:9000/#!/2/docker/dashboard (This is the URL when going to Dashboard page)
               headers:
                 X-API-Key: ${PORTAINER_API_KEY_PI3B}
@@ -255,7 +255,7 @@
                   }
                   .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
-                  .no-bullets::after {
+                  .list-horizontal-text.no-bullets > *:not(:last-child)::after {
                       content: none !important;
                   }
                   .list-horizontal-text.no-bullets > *:not(:last-child) {
