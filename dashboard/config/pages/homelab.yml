@@ -146,7 +146,6 @@
                     <div style="flex-grow:1; min-width:0;">
                       <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
                         {{ .JSON.String "Name" }}
-                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-positive); display: inline-block; vertical-align: middle;"></span>
                       </a>
                       <ul class="list-horizontal-text no-bullets">
                         <li data-popover-type="text" data-popover-text="Containers: {{ .JSON.Int "Snapshots.0.ContainerCount" }}">
@@ -268,7 +267,6 @@
                     <div style="flex-grow:1; min-width:0;">
                       <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.151:9000" target="_blank" rel="noopener">
                         {{ .JSON.String "Name" }}
-                        <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-positive); display: inline-block; vertical-align: middle;"></span>
                       </a>
                       <ul class="list-horizontal-text no-bullets">
                         <li data-popover-type="text" data-popover-text="Containers: {{ .JSON.Int "Snapshots.0.ContainerCount" }}">
