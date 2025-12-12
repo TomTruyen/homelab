@@ -186,7 +186,18 @@
                   }
                   .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
                   .docker-text { display: flex; flex-direction: column; min-width: 0; }
-                  .docker-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+                  .docker-name { 
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 600; 
+                    white-space: nowrap; 
+                    overflow: hidden; 
+                    text-overflow: ellipsis; 
+                  }
+                  .docker-name::after {
+                    content: none !important;
+                  }
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
                   .list-horizontal-text.no-bullets > *:not(:last-child)::after {
                       content: none !important;
@@ -234,7 +245,7 @@
                       <div class="docker-name">
                         {{ .String "Names.0" | trimPrefix "/" }}
                         <li data-popover-type="text" data-popover-text="State: {{ .String "State" }}">
-                        <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                          <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
                         </li>
                       </div>
                       <div class="docker-meta">
@@ -245,7 +256,7 @@
                             {{ $port = printf ":%d" (.Int "PublicPort") }}
                           {{ end }}
                         {{ end }}
-                        ({{ $port }})
+                        {{ if ne $port "" }}({{ $port | trimPrefix ":" }}){{ end }}
                       </div>
                     </div>
                   </div>
