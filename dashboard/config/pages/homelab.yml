@@ -94,10 +94,10 @@
                 </style>
                 <div style="display:flex; align-items:center; gap:12px;">
                     <div style="width:40px; height:40px; flex-shrink:0; display:flex; justify-content:center; align-items:center; overflow:hidden;">
-                      <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/portainer-dark.svg" width="24" height="24" style="object-fit:contain;">
+                      <img src="assets/portainer-logo.png" width="24" height="24" style="object-fit:contain;">
                     </div>
                     <div style="flex-grow:1; min-width:0;">
-                      <a class="size-h4 block text-truncate color-highlight">
+                      <a class="size-h4 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
                         {{ .JSON.String "Name" }}
                         <span style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--color-positive); display: inline-block; vertical-align: middle;"></span>
                       </a>
@@ -151,6 +151,37 @@
               headers:
                 X-API-Key: ${PORTAINER_API_KEY_PI3B}
               template: |
+                <style>
+                  .docker-list { display: flex; flex-direction: column; gap: 0.8em; }
+                  .docker-item { display: flex; align-items: center; gap: 10px; }
+                  .docker-status { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+                  .docker-text { display: flex; flex-direction: column; min-width: 0; }
+                  .docker-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+                  .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
+                </style>
+                <div class="docker-list">
+                  {{ range .JSON.Array "Snapshots.0.DockerSnapshotRaw.Containers" }}
+                  <div class="docker-item">
+                    <!-- Docker icon -->
+                    <img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/docker.svg" width="24" height="24" style="object-fit:contain;" />
+
+                    <!-- Name + status -->
+                    <div class="docker-text">
+                      <div class="docker-name">
+                        {{ .String "Names.0" | trimPrefix "/" }}
+                        <span class="docker-status" style="background-color: {{ if eq (.String "State") "running" }}var(--color-positive){{ else }}var(--color-negative){{ end }}"></span>
+                      </div>
+                      <!-- Image + public port if "::" exists -->
+                      <div class="docker-meta">
+                        {{ .String "Image" }}
+                        {{ $port := index (where .Array "Ports" "IP" "::") 0 }}
+                        {{ if $port }}:{{ $port.Int "PublicPort" }}{{ end }}
+                      </div>
+                    </div>
+                  </div>
+                  {{ end }}
+                </div>
+
                 <style>
                   .list-horizontal-text.no-bullets > *:not(:last-child)::after {
                       content: none !important;
