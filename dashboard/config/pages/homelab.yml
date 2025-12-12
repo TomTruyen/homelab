@@ -75,8 +75,7 @@
               url: https://docs.droidlaunch.tomtruyen.dev
               icon: /assets/droidlaunch-logo.png
 
-        - type: docker-containers
-          hide-by-default: false
+        - include: ../components/portainer.yml
     - size: small
       widgets:
         - type: to-do

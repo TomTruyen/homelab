@@ -22,6 +22,8 @@ mv .env.example .env
 | `TRAEFIK_PASSWORD` | No | Password for basic authentication to the Traefik dashboard (only needed if Traefik is enabled) |
 | `GITHUB_TOKEN` | No | Personal access token from GitHub with read-only permissions for commits, pull requests, issues, and contents (for releases) |
 | `GITHUB_ORG_TOKEN` | No | Optional organization token from GitHub for accessing organization repositories (read-only) |
+| `PORTAINER_API_KEY_PI3B` | No | Used to view remote containers via Portainer API (see: https://github.com/glanceapp/community-widgets/tree/main/widgets/portainer-dashboard) |
+| `PORTAINER_API_KEY_PI4B` | No | Used to view remote containers via Portainer API (see: https://github.com/glanceapp/community-widgets/tree/main/widgets/portainer-dashboard) |
 
 ### Custom APIs
 
