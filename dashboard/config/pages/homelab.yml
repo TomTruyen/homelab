@@ -50,6 +50,9 @@
             - title: Portainer (PI 3B+)
               url: http://192.168.0.151:9000
               icon: /assets/portainer-logo.png
+            - title: Changedetection.io
+              url: http://192.168.0.150:5000
+              icon: /assets/changedetection.png
 
         - type: monitor
           cache: 1m
