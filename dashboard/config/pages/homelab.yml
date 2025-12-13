@@ -184,13 +184,19 @@
                       </div>
                       <div class="docker-meta">
                         {{ .String "Image" }}
-                        {{ $port := "" }}
+                        {{ $maxPort := 0 }}
                         {{ range .Array "Ports" }}
-                          {{ if eq (.String "IP") "::" }}
-                            {{ $port = printf ":%d" (.Int "PublicPort") }}
+                          {{ if and
+                              (eq (.String "Type") "tcp")
+                              (gt (.Int "PublicPort") 0)
+                              (eq (.String "IP") "::")
+                          }}
+                            {{ if gt (.Int "PublicPort") $maxPort }}
+                              {{ $maxPort = (.Int "PublicPort") }}
+                            {{ end }}
                           {{ end }}
                         {{ end }}
-                        {{ if ne $port "" }}({{ $port }}){{ end }}
+                        {{ if gt $maxPort 0 }}(:{{ $maxPort }}){{ end }}
                       </div>
                     </div>
                   </div>
@@ -305,13 +311,19 @@
                       </div>
                       <div class="docker-meta">
                         {{ .String "Image" }}
-                        {{ $port := "" }}
+                        {{ $maxPort := 0 }}
                         {{ range .Array "Ports" }}
-                          {{ if eq (.String "IP") "::" }}
-                            {{ $port = printf ":%d" (.Int "PublicPort") }}
+                          {{ if and
+                              (eq (.String "Type") "tcp")
+                              (gt (.Int "PublicPort") 0)
+                              (eq (.String "IP") "::")
+                          }}
+                            {{ if gt (.Int "PublicPort") $maxPort }}
+                              {{ $maxPort = (.Int "PublicPort") }}
+                            {{ end }}
                           {{ end }}
                         {{ end }}
-                        {{ if ne $port "" }}({{ $port }}){{ end }}
+                        {{ if gt $maxPort 0 }}(:{{ $maxPort }}){{ end }}
                       </div>
                     </div>
                   </div>
