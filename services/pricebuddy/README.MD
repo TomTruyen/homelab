@@ -73,12 +73,7 @@ Key variables (from `.env.example`):
 
 ## Setup
 
-1. (Optional) Copy the example env file and edit values:
-
-```bash
-cp services/pricebuddy/.env.example services/pricebuddy/.env
-# Edit services/pricebuddy/.env and set strong passwords and host-specific values
-```
+1. Configure environment variables in `docker-compose.yml`
 
 2. Start the stack:
 
@@ -89,7 +84,26 @@ docker compose up -d
 
 3. Wait for the database to initialize (give MySQL ~10–30s on first run).
 
-4. Visit the web UI at `http://<host-ip>:5000` (replace `<host-ip>` with your host address).
+4. Configure first user:
+   ```bash
+    docker exec -it pricebuddy php artisan tinker
+
+    # Paste & modify values
+    use App\Models\User;
+
+    User::create([
+        'name' => 'admin',
+        'email' => 'admin@example.com',
+        'password' => bcrypt('changeme123'),
+    ]);
+
+    # Finish
+    exit
+   ```
+
+5. Visit the web UI at `http://<host-ip>:5000` (replace `<host-ip>` with your host address).
+
+6. Go to settings a configure notifications
 
 ------------------------------------------------------------------------
 
