@@ -40,7 +40,7 @@ sudo omv-firstaid
 
 ### Change Workbench (Web UI) Port
 
-By default, OMV uses port 80. To change it to another port (e.g., 8000) for use with other services:
+By default, OMV uses port 80. To change it to another port (e.g., 5000) for use with other services:
 
 **Via Dashboard:**
 1. Navigate to **System → Workbench**

@@ -18,7 +18,7 @@ PriceBuddy is a small self-hosted price-tracking and alerting web application th
 
 The compose file defines two services:
 
-- `pricebuddy` — the web application (exposes port `8000`)
+- `pricebuddy` — the web application (exposes port `5000`)
 - `db` — a MySQL 8.0 database used by PriceBuddy
 
 Excerpt from `docker-compose.yml`:
@@ -32,7 +32,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8000:80"
+      - "5000:80"
     environment: # see .env.example
 
   db:
@@ -60,7 +60,7 @@ Key variables (from `.env.example`):
 | `APP_NAME` | Yes | Application name |
 | `APP_ENV` | Yes | Environment (`production` / `development`) |
 | `APP_DEBUG` | No | Debug mode (`true`/`false`) |
-| `APP_URL` | Yes | Public URL of app (e.g. `http://yourhost:8000`) |
+| `APP_URL` | Yes | Public URL of app (e.g. `http://yourhost:5000`) |
 | `DB_CONNECTION` | Yes | Database driver (mysql) |
 | `DB_HOST` | Yes | DB host/container name (db) |
 | `DB_PORT` | Yes | DB port (3306) |
@@ -89,7 +89,7 @@ docker compose up -d
 
 3. Wait for the database to initialize (give MySQL ~10–30s on first run).
 
-4. Visit the web UI at `http://<host-ip>:8000` (replace `<host-ip>` with your host address).
+4. Visit the web UI at `http://<host-ip>:5000` (replace `<host-ip>` with your host address).
 
 ------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ docker exec -t pricebuddy-db mysqldump -u root -p${MYSQL_ROOT_PASSWORD} pricebud
 
 ## Troubleshooting
 
-- App not reachable on port 8000:
+- App not reachable on port 5000:
   - Ensure the container is running: `docker compose ps`
   - Check logs: `docker compose logs -f pricebuddy`
   - Confirm the DB container is healthy: `docker compose logs -f db`
