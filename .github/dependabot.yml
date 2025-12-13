@@ -4,7 +4,9 @@ updates:
     directories:
       - "/dashboard/agent"
       - "/dashboard"
+      - "/services/watchtower"
       - "/services/pi-hole"
+      - "/services/pricebuddy"
       - "/services/portainer"
       - "/services/uptime-kuma"
     schedule:
