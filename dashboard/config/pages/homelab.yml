@@ -51,7 +51,7 @@
               url: http://192.168.0.151:9000
               icon: /assets/portainer-logo.png
             - title: PriceBuddy
-              url: http://192.168.0.150:5000
+              url: http://192.168.0.150:5000/admin/login
               icon: /assets/price-buddy.png
               timeout: 5s
 
