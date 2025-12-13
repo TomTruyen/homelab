@@ -53,6 +53,7 @@
             - title: PriceBuddy
               url: http://192.168.0.150:5000
               icon: /assets/price-buddy.png
+              timeout: 5s
 
         - type: monitor
           cache: 1m
