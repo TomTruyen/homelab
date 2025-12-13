@@ -70,8 +70,8 @@ docker compose up -d
 cd services/watchtower
 docker compose up -d
 
-# Changedetection.io
-cd services/changedetection
+# PriceBuddy
+cd services/pricebuddy
 docker compose up -d
 ```
 
@@ -119,7 +119,7 @@ Services are accessible on your local network at:
 - Pi-hole: `http://\<server-ip\>:8080/admin`
 - Portainer: `http://\<server-ip\>:9000`
 - Uptime Kuma: `http://\<server-ip\>:3001`
-- Changedetection: `http://\<server-ip\>:5000`
+- PriceBuddy: `http://\<server-ip\>:5000`
 
 ------------------------------------------------------------------------
 
@@ -135,7 +135,7 @@ Each service and component has its own comprehensive README:
 | **Uptime Kuma** | Service monitoring | [README](./services/uptime-kuma/README.MD) |
 | **OpenMediaVault** | NAS & storage | [README](./services/openmediavault/README.MD) |
 | **Watchtower** | Automatic Docker image updates | [README](./services/watchtower/README.MD) |
-| **Changedetection.io** | Detect changes on web pages (price tracking) | [README](./services/changedetection/README.MD) |
+| **PriceBuddy** | Price Tracker (for Amazon) | [README](./services/pricebuddy/README.MD) |
 | **AniList API** | Anime tracking | [README](./dashboard/api/anilist/README.MD) |
 | **Glance Agent** | Remote data collection | [README](./dashboard/agent/README.MD) |
 | **Homelab Sync** | Auto-update service | [README](./dashboard/homelab-sync/README.MD) |

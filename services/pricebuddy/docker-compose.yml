@@ -1,0 +1,37 @@
+services:
+  pricebuddy:
+    image: jez500/pricebuddy:latest
+    container_name: pricebuddy
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8000:80"
+    environment:
+      APP_NAME: PriceBuddy
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_URL: http://localhost:8000
+
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: pricebuddy
+      DB_USERNAME: pricebuddy
+      DB_PASSWORD: pricebuddypassword
+  
+  db:
+    image: mysql:8.0
+    container_name: pricebuddy-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: pricebuddy
+      MYSQL_USER: pricebuddy
+      MYSQL_PASSWORD: pricebuddypassword
+      MYSQL_ROOT_PASSWORD: rootpassword
+      TZ: Europe/Brussels
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+volumes:
+  pricebuddy_storage:
