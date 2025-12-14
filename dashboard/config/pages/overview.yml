@@ -74,6 +74,10 @@
               repository: TomTruyen/tomtruyen-dev-portfolio
               <<: *shared-properties
 
+            - title: Mailsift
+              repository: TomTruyen/mailsift
+              <<: *shared-properties
+
             - title: VPS-Deploy
               repository: TomTruyen/tomtruyen-dev-traefik-vps-flow
               <<: *shared-properties
