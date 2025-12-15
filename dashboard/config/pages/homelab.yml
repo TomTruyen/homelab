@@ -171,10 +171,6 @@
                         </p>
                       </li>
                     </ul>
-                    <div class="color-muted size-small" style="margin-top:4px; display:flex; align-items:center; gap:6px;">
-                      <span>Last updated:</span>
-                      <span class="portainer-last-updated" data-ts="{{ .JSON.Int "Snapshots.0.Time" }}" />
-                    </div>
                   </div>
                 </div>
                 <div class="docker-list">
@@ -301,10 +297,6 @@
                         </p>
                       </li>
                     </ul>
-                    <div class="color-muted size-small" style="margin-top:4px; display:flex; align-items:center; gap:6px;">
-                      <span>Last updated:</span>
-                      <span class="portainer-last-updated" data-ts="{{ .JSON.Int "Snapshots.0.Time" }}" />
-                    </div>
                   </div>
                 </div>
                 <div class="docker-list">
