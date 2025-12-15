@@ -1,5 +1,8 @@
 function updateLastUpdated() {
+  console.log("Triggering Update Last Updated", document.querySelectorAll(".portainer-last-updated"))
+
   document.querySelectorAll('.portainer-last-updated').forEach(el => {
+    console.log("Processed: ", el.dataset.processed);
     if (el.dataset.processed) return;
 
     const ts = Number(el.dataset.ts);
@@ -21,3 +24,5 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+
+console.log("Portainer Custom API Script Loaded");
