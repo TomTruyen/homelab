@@ -98,10 +98,10 @@
                       {{ .String "title" }}
                     </a>
                     <ul class="list-vertical-text">
-                      {{ if .Int "episode" }}
-                        <li>Episode {{ .Int "episode" }}</li>
+                      {{ if .Int "nextEpisode" }}
+                        <li>Episode {{ .Int "nextEpisode" }}</li>
                       {{ end }}
-                      <li>Airing: {{ .String "formattedAiring" }}</li>
+                      <li>Airing: {{ .String "airingAt" }}</li>
                     </ul>
                   </li>
                 {{ end }}
