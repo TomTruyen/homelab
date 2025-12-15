@@ -3,7 +3,11 @@ server:
 
 # Custom JS Scripts
 document:
-  custom-js-file: /assets/scripts/portainer-custom-api-script.js
+  head: |
+    <meta http-equiv="refresh" content="3600"> 
+    <script>
+      $include: /assets/scripts/portainer-custom-api-script.js
+    </script>
 
 branding:
   logo-url: /assets/logo.png
