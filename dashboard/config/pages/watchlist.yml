@@ -102,8 +102,6 @@
                         <li>Episode {{ .Int "episode" }}</li>
                       {{ end }}
                       <li>Airing: {{ .String "formattedAiring" }}</li>
-                      {{ $status := .String "status" }}
-                      <li class="color-positive">{{ .String "status" }}</li>
                     </ul>
                   </li>
                 {{ end }}
