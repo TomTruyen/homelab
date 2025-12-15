@@ -5,9 +5,7 @@ server:
 document:
   head: |
     <meta http-equiv="refresh" content="3600"> 
-    <script>
-      $include: /assets/scripts/portainer-custom-api-script.js
-    </script>
+    <script src="/assets/scripts/portainer-custom-api-script.js" />
 
 branding:
   logo-url: /assets/logo.png
