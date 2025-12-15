@@ -12,6 +12,10 @@ import (
 const anilistAnimeUrl = "https://anilist.co/anime/%d"
 const anikaiBrowseUrl = "https://anikai.to/browser?keyword=%s"
 
+type Items[T any] struct {
+	Items []T `json:"items"`
+}
+
 func (s *Service) GetUpcomingAnimes(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
@@ -54,7 +58,10 @@ func (s *Service) GetUpcomingAnimes(w http.ResponseWriter, r *http.Request) {
 		}
 	})
 
-	json.NewEncoder(w).Encode(upcoming)
+	response := Items[model.UpcomingEntry]{
+		Items: upcoming,
+	}
+	json.NewEncoder(w).Encode(response)
 }
 
 // Available Animes
@@ -81,7 +88,10 @@ func (s *Service) FetchAvailable(w http.ResponseWriter, r *http.Request) {
 		return available[i].Watched > available[j].Watched
 	})
 
-	json.NewEncoder(w).Encode(available)
+	response := Items[model.AvailableEntry]{
+		Items: available,
+	}
+	json.NewEncoder(w).Encode(response)
 }
 
 // Currently Watching Animes
@@ -108,5 +118,8 @@ func (s *Service) FetchWatching(w http.ResponseWriter, r *http.Request) {
 	})
 
 	// Sort
-	json.NewEncoder(w).Encode(watching)
+	response := Items[model.WatchingEntry]{
+		Items: watching,
+	}
+	json.NewEncoder(w).Encode(response)
 }
