@@ -144,34 +144,54 @@
                   }
                 </style>
                 <div style="display:flex; align-items:center; gap:12px; padding-bottom: 8px;">
-                    <div>
-                      <img src="assets/portainer-logo.png" class="portainer-icon cached finished-transition">
-                    </div>
-                    <div style="flex-grow:1; min-width:0;">
-                      <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
-                        {{ .JSON.String "Name" }}
-                      </a>
-                      <ul class="list-horizontal-text no-bullets">
-                        <li data-popover-type="text" data-popover-text="Containers: {{ .JSON.Int "Snapshots.0.ContainerCount" }}">
-                          <p style="display:inline-flex;align-items:center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-box icon inline-flex" aria-hidden="true" role="img"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
-                            {{ .JSON.Int "Snapshots.0.ContainerCount" }}
-                          </p>
-                        </li>
-                        <li data-popover-type="text" data-popover-text="Volumes: {{ .JSON.Int "Snapshots.0.VolumeCount" }}">
-                          <p style="display:inline-flex;align-items:center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-database icon inline-flex" aria-hidden="true" role="img"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
-                            {{ .JSON.Int "Snapshots.0.VolumeCount"  }}
-                          </p>
-                        </li>
-                        <li data-popover-type="text" data-popover-text="Networks: {{ .JSON.Int "Snapshots.0.DockerSnapshotRaw.Networks.#" }}">
-                          <p style="display:inline-flex;align-items:center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-network icon inline-flex" aria-hidden="true" role="img"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>
-                            {{ .JSON.Int "Snapshots.0.DockerSnapshotRaw.Networks.#" }}
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
+                  <div>
+                    <img src="assets/portainer-logo.png" class="portainer-icon cached finished-transition">
+                  </div>
+                  <div style="flex-grow:1; min-width:0;">
+                    <a class="size-h3 block text-truncate color-highlight" href="http://192.168.0.150:9000" target="_blank" rel="noopener">
+                      {{ .JSON.String "Name" }}
+                    </a>
+                    <ul class="list-horizontal-text no-bullets">
+                      <li data-popover-type="text" data-popover-text="Containers: {{ .JSON.Int "Snapshots.0.ContainerCount" }}">
+                        <p style="display:inline-flex;align-items:center;">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-box icon inline-flex" aria-hidden="true" role="img"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+                          {{ .JSON.Int "Snapshots.0.ContainerCount" }}
+                        </p>
+                      </li>
+                      <li data-popover-type="text" data-popover-text="Volumes: {{ .JSON.Int "Snapshots.0.VolumeCount" }}">
+                        <p style="display:inline-flex;align-items:center;">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-database icon inline-flex" aria-hidden="true" role="img"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
+                          {{ .JSON.Int "Snapshots.0.VolumeCount"  }}
+                        </p>
+                      </li>
+                      <li data-popover-type="text" data-popover-text="Networks: {{ .JSON.Int "Snapshots.0.DockerSnapshotRaw.Networks.#" }}">
+                        <p style="display:inline-flex;align-items:center;">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height:1em;vertical-align:middle;margin-right:0.5em;" class="size-6 lucide lucide-network icon inline-flex" aria-hidden="true" role="img"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>
+                          {{ .JSON.Int "Snapshots.0.DockerSnapshotRaw.Networks.#" }}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="color-muted size-small" style="margin-top:4px; display:flex; align-items:center; gap:6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="height:0.9em;"
+                        class="lucide lucide-clock">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+
+                    <span>Last updated:</span>
+                    <span class="glance-last-updated"
+                          data-ts="{{ .JSON.Int "Snapshots.0.Time" }}">
+                      —
+                    </span>
+                  </div>
                 </div>
                 <div class="docker-list">
                   {{ range .JSON.Array "Snapshots.0.DockerSnapshotRaw.Containers" }}
@@ -206,6 +226,16 @@
                   </div>
                   {{ end }}
                 </div>
+                <script>
+                  document.querySelectorAll('.glance-last-updated').forEach(el => {
+                    const ts = parseInt(el.dataset.ts, 10);
+                    if (!ts) return;
+
+                    const date = new Date(ts * 1000);
+                    el.textContent = date.toLocaleString();
+                  });
+                </script>
+
 
             - type: custom-api
               title: Docker (Raspberry PI 3B+)
