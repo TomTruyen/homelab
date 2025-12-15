@@ -9,7 +9,6 @@ function updateLastUpdated() {
     el.dataset.processed = "true";
   });
 }
-
 // Run once
 updateLastUpdated();
 
