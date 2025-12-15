@@ -44,15 +44,18 @@ func FormatUpcomingEntry(media api.Media, progress int, anilistAnimeUrl, anikaiB
 		title = media.Title.Romaji
 	}
 
-	nextEp := progress + 1
+	nextEpisode := progress + 1
+
+	if media.NextAiringEpisode == nil {
+		return nil
+	}
 
 	var airingAt *string
-	if media.NextAiringEpisode != nil {
-		formatted := util.FormatAiringAt(media.NextAiringEpisode.AiringAt)
-		if formatted != nil {
-			airingAt = formatted
-		}
+	formatted := util.FormatAiringAt(media.NextAiringEpisode.AiringAt)
+	if formatted != nil {
+		airingAt = formatted
 	}
+
 	if airingAt == nil {
 		n := "N/A"
 		airingAt = &n
@@ -60,7 +63,7 @@ func FormatUpcomingEntry(media api.Media, progress int, anilistAnimeUrl, anikaiB
 
 	return &UpcomingEntry{
 		Title:         title,
-		NextEpisode:   nextEp,
+		NextEpisode:   nextEpisode,
 		TotalEpisodes: media.Episodes,
 		URL:           fmt.Sprintf(anilistAnimeUrl, media.ID),
 		WatchURL:      fmt.Sprintf(anikaiBrowseUrl, title),
