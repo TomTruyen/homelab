@@ -1,6 +1,11 @@
 server:
   assets-path: /app/assets
 
+# Custom JS Scripts
+document:
+  head: |
+    <script src="/assets/scripts/portainer-custom-api-script.js"></script>
+
 branding:
   logo-url: /assets/logo.png
   favicon-url: /assets/logo.png

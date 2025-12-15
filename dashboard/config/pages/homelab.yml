@@ -171,26 +171,10 @@
                         </p>
                       </li>
                     </ul>
-                  </div>
-                  <div class="color-muted size-small" style="margin-top:4px; display:flex; align-items:center; gap:6px;">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="height:0.9em;"
-                        class="lucide lucide-clock">
-                      <circle cx="12" cy="12" r="10"></circle>
-                      <polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-
-                    <span>Last updated:</span>
-                    <span class="glance-last-updated"
-                          data-ts="{{ .JSON.Int "Snapshots.0.Time" }}">
-                      —
-                    </span>
+                    <div class="color-muted size-small" style="margin-top:4px; display:flex; align-items:center; gap:6px;">
+                      <span>Last updated:</span>
+                      <span class="portainer-last-updated" data-ts="{{ .JSON.Int "Snapshots.0.Time" }}" />
+                    </div>
                   </div>
                 </div>
                 <div class="docker-list">
@@ -226,17 +210,6 @@
                   </div>
                   {{ end }}
                 </div>
-                <script>
-                  document.querySelectorAll('.glance-last-updated').forEach(el => {
-                    const ts = parseInt(el.dataset.ts, 10);
-                    if (!ts) return;
-
-                    const date = new Date(ts * 1000);
-                    el.textContent = date.toLocaleString();
-                  });
-                </script>
-
-
             - type: custom-api
               title: Docker (Raspberry PI 3B+)
               cache: 15m
