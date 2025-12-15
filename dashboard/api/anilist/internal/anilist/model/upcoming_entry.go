@@ -30,6 +30,7 @@ func UpcomingEntryQuery(username string) string {
 			  id
 			  title { romaji english }
 			  nextAiringEpisode { id episode airingAt }
+			  status
 			}
 			progress
 		  }
@@ -46,14 +47,16 @@ func FormatUpcomingEntry(media api.Media, progress int, anilistAnimeUrl, anikaiB
 
 	nextEpisode := progress + 1
 
-	if media.NextAiringEpisode == nil {
-		return nil
-	}
-
 	var airingAt *string
-	formatted := util.FormatAiringAt(media.NextAiringEpisode.AiringAt)
-	if formatted != nil {
-		airingAt = formatted
+	if media.NextAiringEpisode == nil {
+		if media.Status != "NOT_YET_RELEASED" {
+			return nil
+		}
+	} else {
+		formatted := util.FormatAiringAt(media.NextAiringEpisode.AiringAt)
+		if formatted != nil {
+			airingAt = formatted
+		}
 	}
 
 	if airingAt == nil {
