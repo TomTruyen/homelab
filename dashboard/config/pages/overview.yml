@@ -8,6 +8,8 @@
               links:
                 - title: Proton
                   url: https://account.proton.me/apps
+                - title: Obsidian
+                  url: obsidian://open?vault=vault
                 - title: Notion
                   url: https://www.notion.so
                 - title: ChatGPT
