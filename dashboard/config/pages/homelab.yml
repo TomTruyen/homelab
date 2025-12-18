@@ -27,6 +27,8 @@
             - pi-hole/pi-hole
             - portainer/portainer
             - louislam/uptime-kuma
+            - nickfedor/watchtower
+            - jez500/pricebuddy
         
     - size: full
       widgets:
