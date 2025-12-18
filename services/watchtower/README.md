@@ -2,9 +2,9 @@
 
 Automated container update service that watches running Docker containers and automatically pulls and restarts them when a new image is available.
 
-Watchtower (containrrr/watchtower) is a simple helper service to keep your homelab containers up-to-date with minimal manual intervention.
+Watchtower (nickfedor/watchtower) is a simple helper service to keep your homelab containers up-to-date with minimal manual intervention.
 
-🔗 https://github.com/containrrr/watchtower
+🔗 https://github.com/nickfedor/watchtower
 
 ------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ This repository runs Watchtower with the Docker socket mounted so it can manage 
 ```yaml
 services:
   watchtower:
-    image: containrrr/watchtower
+    image: nickfedor/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
