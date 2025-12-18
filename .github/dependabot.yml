@@ -7,6 +7,7 @@ updates:
       - "/services/watchtower"
       - "/services/pi-hole"
       - "/services/pricebuddy"
+      - "/services/github-backup"
       - "/services/portainer"
       - "/services/uptime-kuma"
     schedule:
