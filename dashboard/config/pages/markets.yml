@@ -10,7 +10,9 @@
             - symbol: EXSA.DE
               name: STOXX 600 (iShares)
             - symbol: WSML.L
-              name: MSCI World Small Cap (iShares )
+              name: MSCI World Small Cap (iShares)
+            - symbol: CSEMAS.SW
+              name: MSCI EM Asia UCITS ETF USD (iShares)
 
         - type: markets
           title: Crypto
