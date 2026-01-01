@@ -5,14 +5,14 @@
         - type: markets
           title: Indices
           markets:
-            - symbol: VUSA.L
+            - symbol: VUSA.DE
               name: S&P 500 UCITS (Vanguard)
             - symbol: EXSA.DE
               name: STOXX 600 (iShares)
-            - symbol: WSML.L
+            - symbol: IUSN.DE
               name: MSCI World Small Cap (iShares)
-            - symbol: CSEMAS.SW
-              name: MSCI EM Asia UCITS ETF USD (iShares)
+            - symbol: CEBL.DE
+              name: MSCI EM Asia ETF USD Acc (iShares)
 
         - type: markets
           title: Crypto
