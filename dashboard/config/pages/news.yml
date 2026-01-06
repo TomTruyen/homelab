@@ -31,6 +31,8 @@
               title: The Verge
             - url: https://arstechnica.com/feed/
               title: Ars Technica
+            - url: https://proton.me/blog/feed
+              title: Proton
 
         - type: group
           widgets:
