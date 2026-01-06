@@ -41,6 +41,14 @@
             - TomTruyen/soteria-authenticator
             - TomTruyen/get-reminded
 
+        - type: rss
+          limit: 25
+          collapse-after: 5
+          cache: 1h
+          feeds:
+            - url: https://proton.me/blog/feed
+              title: Proton
+              
     - size: full
       widgets:
         - type: search
