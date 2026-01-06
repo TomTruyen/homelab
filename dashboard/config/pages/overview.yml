@@ -42,6 +42,7 @@
             - TomTruyen/get-reminded
 
         - type: rss
+          title: Proton Blog
           limit: 25
           collapse-after: 5
           cache: 1h
