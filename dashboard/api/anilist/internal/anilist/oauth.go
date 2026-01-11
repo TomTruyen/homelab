@@ -20,6 +20,18 @@ type TokenResponse struct {
 }
 
 func (s *Service) GetAccessToken(ctx context.Context) (string, error) {
+	return s.getAccessTokenWithRetry(ctx, 1)
+}
+
+func (s *Service) getAccessTokenWithRetry(ctx context.Context, retriesLeft int) (string, error) {
+	token, err := s.doGetAccessToken(ctx)
+	if err != nil && retriesLeft > 0 {
+		return s.getAccessTokenWithRetry(ctx, retriesLeft-1)
+	}
+	return token, err
+}
+
+func (s *Service) doGetAccessToken(ctx context.Context) (string, error) {
 	if s.clientID == "" || s.clientSecret == "" {
 		return "", errors.New("AniList client credentials are not configured")
 	}
