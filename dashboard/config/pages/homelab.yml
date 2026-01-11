@@ -29,16 +29,16 @@
             - louislam/uptime-kuma
             - nickfedor/watchtower
             - jez500/pricebuddy
-        
+
     - size: full
       widgets:
-        # Icons from: https://dashboardicons.com/icons 
+        # Icons from: https://dashboardicons.com/icons
         - type: monitor
           cache: 1m
           title: Homelab Services
           sites:
             - title: Pi-Hole
-              url: http://192.168.0.151:8080/admin  
+              url: http://192.168.0.151:8080/admin
               icon: /assets/pihole-logo.png
             - title: Uptime Kuma
               url: http://192.168.0.151:3001
@@ -70,6 +70,9 @@
             - title: Portfolio
               url: https://tomtruyen.dev
               icon: /assets/portfolio-logo.png
+            - title: Blog
+              url: https://blog.tomtruyen.dev
+              icon: /assets/blog-logo.png
             - title: Mailsift
               url: https://mailsift.tomtruyen.dev
               icon: /assets/mailsift-logo.png
@@ -113,28 +116,28 @@
                     filter: grayscale(0.4);
                     aspect-ratio: 1 / 1;
                   }
-                  .docker-list { 
-                    display: flex; 
-                    flex-direction: column; 
+                  .docker-list {
+                    display: flex;
+                    flex-direction: column;
                   }
-                  .docker-item { 
-                    display: flex; 
-                    align-items: center; 
-                    gap: 10px; 
+                  .docker-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
                     padding: 8px 0;
                     border-top: 1px solid var(--color-separator);
 
                   }
                   .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
                   .docker-text { display: flex; flex-direction: column; min-width: 0; }
-                  .docker-name { 
+                  .docker-name {
                     display: flex;
                     align-items: center;
                     gap: 8px;
-                    font-weight: 600; 
-                    white-space: nowrap; 
-                    overflow: hidden; 
-                    text-overflow: ellipsis; 
+                    font-weight: 600;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                   }
                   .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
@@ -239,28 +242,28 @@
                     filter: grayscale(0.4);
                     aspect-ratio: 1 / 1;
                   }
-                  .docker-list { 
-                    display: flex; 
-                    flex-direction: column; 
+                  .docker-list {
+                    display: flex;
+                    flex-direction: column;
                   }
-                  .docker-item { 
-                    display: flex; 
-                    align-items: center; 
-                    gap: 10px; 
+                  .docker-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
                     padding: 8px 0;
                     border-top: 1px solid var(--color-separator);
 
                   }
                   .docker-status { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
                   .docker-text { display: flex; flex-direction: column; min-width: 0; }
-                  .docker-name { 
+                  .docker-name {
                     display: flex;
                     align-items: center;
                     gap: 8px;
-                    font-weight: 600; 
-                    white-space: nowrap; 
-                    overflow: hidden; 
-                    text-overflow: ellipsis; 
+                    font-weight: 600;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                   }
                   .docker-name
                   .docker-meta { font-size: 0.85em; color: var(--color-secondary); }
@@ -343,4 +346,3 @@
           show-thumbnails: true
           limit: 20
           collapse-after: 5
-
