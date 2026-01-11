@@ -45,14 +45,15 @@ func FormatUpcomingEntry(media api.Media, progress int, anilistAnimeUrl, anikaiB
 		title = media.Title.Romaji
 	}
 
-	nextEpisode := progress + 1
-
+	var nextEpisode int
 	var airingAt *string
 	if media.NextAiringEpisode == nil {
 		if media.Status != "NOT_YET_RELEASED" {
 			return nil
 		}
+		nextEpisode = 1 // Not yet released, first episode will be episode 1
 	} else {
+		nextEpisode = media.NextAiringEpisode.Episode
 		formatted := util.FormatAiringAt(media.NextAiringEpisode.AiringAt)
 		if formatted != nil {
 			airingAt = formatted
