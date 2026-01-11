@@ -32,7 +32,7 @@
                   url: https://www.netflix.com/browse
                 - title: Anime
                   url: https://animekai.to/home
-        
+
         - type: releases
           show-source-icon: true
           token: ${GITHUB_TOKEN}
@@ -49,7 +49,7 @@
           feeds:
             - url: https://proton.me/blog/feed
               title: Proton
-              
+
     - size: full
       widgets:
         - type: search
@@ -76,13 +76,17 @@
             - title: Fynix
               repository: TomTruyen/fynix
               <<: *shared-properties
-            
+
             - title: Soteria
               repository: TomTruyen/soteria-authenticator
               <<: *shared-properties
 
             - title: Portfolio
               repository: TomTruyen/tomtruyen-dev-portfolio
+              <<: *shared-properties
+
+            - title: Blog
+              repository: TomTruyen/obsidian-blog-site
               <<: *shared-properties
 
             - title: Mailsift
@@ -137,8 +141,8 @@
               show-thumbnails: true
 
     - size: small
-      widgets:  
-        - type: to-do   
+      widgets:
+        - type: to-do
 
         - type: calendar
           first-day-of-week: monday
@@ -146,7 +150,7 @@
         - type: weather
           location: Bree, Belgium
           units: metric
-          hour-format: 12h   
+          hour-format: 12h
 
         - type: rss
           limit: 25
