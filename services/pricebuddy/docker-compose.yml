@@ -21,7 +21,7 @@ services:
       DB_PASSWORD: pricebuddypassword
   
   db:
-    image: mysql:9.5
+    image: mysql:9.6
     container_name: pricebuddy-db
     restart: unless-stopped
     environment:
