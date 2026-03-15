@@ -82,6 +82,9 @@
             - title: DroidLaunch Docs
               url: https://docs.droidlaunch.tomtruyen.dev
               icon: /assets/droidlaunch-logo.png
+            - title: House Price Calculator
+              url: https://housecalc.tomtruyen.dev
+              icon: /assets/housecalc.png
 
         - type: split-column
           widgets:
