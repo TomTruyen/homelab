@@ -85,6 +85,9 @@
             - title: House Price Calculator
               url: https://housecalc.tomtruyen.dev
               icon: /assets/housecalc.png
+            - title: "Nexus: Asset Mangement"
+              url: https://nexus.tomtruyen.dev
+              icon: /assets/nexus.png
 
         - type: split-column
           widgets:
