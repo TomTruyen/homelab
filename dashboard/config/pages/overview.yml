@@ -101,8 +101,16 @@
               repository: TomTruyen/homelab
               <<: *shared-properties
 
+            - title: Nexus
+              repository: TomTruyen/nexus-asset-management
+              <<: *shared-properties
+
             - title: ThijsWoodworking
               repository: TomTruyen/thijswoodworking-v2
+              <<: *shared-properties
+
+            - title: HouseCalc
+              repository: TomTruyen/house-price-calculator
               <<: *shared-properties
 
         # Organisation Repositories
