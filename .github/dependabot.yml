@@ -2,14 +2,14 @@ version: 2
 updates:
   - package-ecosystem: "docker-compose"
     directories:
+      - "/services/pricebuddy"
+      - "/services/watchtower"
+      - "/services/github-backup"
+      - "/services/uptime-kuma"
+      - "/services/pi-hole"
+      - "/services/portainer"
       - "/dashboard/agent"
       - "/dashboard"
-      - "/services/watchtower"
-      - "/services/pi-hole"
-      - "/services/pricebuddy"
-      - "/services/github-backup"
-      - "/services/portainer"
-      - "/services/uptime-kuma"
     schedule:
       interval: "weekly"
       day: "sunday"
