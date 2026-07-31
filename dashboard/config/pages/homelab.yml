@@ -76,12 +76,6 @@
             - title: Mailsift
               url: https://mailsift.tomtruyen.dev
               icon: /assets/mailsift-logo.png
-            - title: DroidLaunch
-              url: https://droidlaunch.tomtruyen.dev
-              icon: /assets/droidlaunch-logo.png
-            - title: DroidLaunch Docs
-              url: https://docs.droidlaunch.tomtruyen.dev
-              icon: /assets/droidlaunch-logo.png
             - title: House Price Calculator
               url: https://housecalc.tomtruyen.dev
               icon: /assets/housecalc.png

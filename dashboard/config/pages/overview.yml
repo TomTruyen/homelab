@@ -122,6 +122,7 @@
             issues-limit: -1
             commit-limit: -1
           widgets:
+             # TODO: Add Thijswoodworking here
             - title: DroidLaunch (Android)
               repository: TomTruyen-Organisation/droidlaunch-kt
               <<: *shared-properties

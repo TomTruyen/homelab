@@ -80,6 +80,4 @@ Current list of services monitored:
 - https://tomtruyen.dev
 - https://traefik.tomtruyen.dev
 - https://mailsift.tomtruyen.dev
-- https://droidlaunch.tomtruyen.dev
-- https://docs.droidlaunch.tomtruyen.dev
 - https://thijswoodworking.be
