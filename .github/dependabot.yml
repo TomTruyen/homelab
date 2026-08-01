@@ -2,24 +2,16 @@ version: 2
 updates:
   - package-ecosystem: "docker-compose"
     directories:
-      - "/services/pricebuddy"
-      - "/services/watchtower"
-      - "/services/github-backup"
-      - "/services/uptime-kuma"
-      - "/services/pi-hole"
-      - "/services/portainer"
-      - "/dashboard/agent"
       - "/dashboard"
+      - "/dashboard/agent"
+      - "/services/uptime-kuma"
+      - "/services/watchtower"
+      - "/services/portainer"
+      - "/services/pricebuddy"
+      - "/services/pi-hole"
+      - "/services/github-backup"
     schedule:
       interval: "weekly"
       day: "sunday"
       time: "06:00"
       timezone: "Europe/Brussels"
-    groups:
-      major-updates:
-        update-types:
-          - "major"
-      non-major-updates:
-        update-types:
-          - "minor"
-          - "patch"
