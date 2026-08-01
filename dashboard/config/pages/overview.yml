@@ -105,10 +105,6 @@
               repository: TomTruyen/nexus-asset-management
               <<: *shared-properties
 
-            - title: ThijsWoodworking
-              repository: TomTruyen/thijswoodworking-v2
-              <<: *shared-properties
-
             - title: HouseCalc
               repository: TomTruyen/house-price-calculator
               <<: *shared-properties
@@ -122,17 +118,12 @@
             issues-limit: -1
             commit-limit: -1
           widgets:
-             # TODO: Add Thijswoodworking here
-            - title: DroidLaunch (Android)
-              repository: TomTruyen-Organisation/droidlaunch-kt
+            - title: TT Digital Template
+              repository: TTDigital-dev/tt-digital-template
               <<: *shared-properties
 
-            - title: DroidLaunch Site
-              repository: TomTruyen-Organisation/droidlaunch-site
-              <<: *shared-properties
-
-            - title: DroidLaunch Docs
-              repository: TomTruyen-Organisation/droidlaunch-docs
+            - title: ThijsWoodworking
+              repository: TTDigital-dev/thijswoodworking
               <<: *shared-properties
 
         - type: group
